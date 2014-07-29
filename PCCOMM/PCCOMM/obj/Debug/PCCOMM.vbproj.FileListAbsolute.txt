@@ -20,3 +20,13 @@ C:\Users\Kioriy\Documents\GitHub\Atomixlab 2.2\PCCOMM\PCCOMM\obj\Debug\PCCOMM.pd
 C:\Users\Kioriy\Documents\GitHub\Atomixlab 2.2\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmAltaOrdenLaboratorio.resources
 C:\Users\Kioriy\Documents\GitHub\Atomixlab 2.2\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmEditarOrdenLaboratorio.resources
 C:\Users\Kioriy\Documents\GitHub\Atomixlab 2.2\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmResultados.resources
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\Interop.FPSpreadADO.dll
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\Interop.FPUSpreadADO.dll
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\Interop.MSDATASRC.dll
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\AxInterop.FPSpreadADO.dll
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\AxInterop.FPUSpreadADO.dll
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.vbproj.ResolveComReference.cache
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.exe
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.xml
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.pdb
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\bin\Debug\PCCOMM.exe.config

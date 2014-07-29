@@ -18,6 +18,7 @@ Public Class conexionBD
     Public query As SqlCommand
     Public queryBuilder As SqlCommandBuilder
     Public adaptador As SqlDataAdapter
+    Public reader As SqlDataReader
 
     'CONEXION
     Public Sub conexion()
