@@ -30,7 +30,10 @@ Partial Class frmAltaOrdenLaboratorio
         Me.btnActualizar = New System.Windows.Forms.Button()
         Me.btnNuevaOrden = New System.Windows.Forms.Button()
         Me.btnRegresar = New System.Windows.Forms.Button()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvEstudios = New System.Windows.Forms.DataGridView()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Colum2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.btnDescuento = New System.Windows.Forms.Button()
         Me.btnAbonar = New System.Windows.Forms.Button()
@@ -44,6 +47,7 @@ Partial Class frmAltaOrdenLaboratorio
         Me.Label8 = New System.Windows.Forms.Label()
         Me.txtFolio = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
+        Me.btnEliminarEstudio = New System.Windows.Forms.Button()
         Me.cbRecibi = New System.Windows.Forms.ComboBox()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.btnAgregarEstudio = New System.Windows.Forms.Button()
@@ -54,8 +58,8 @@ Partial Class frmAltaOrdenLaboratorio
         Me.Label10 = New System.Windows.Forms.Label()
         Me.Label12 = New System.Windows.Forms.Label()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.cbNombre = New System.Windows.Forms.ComboBox()
-        Me.cbApellido = New System.Windows.Forms.ComboBox()
+        Me.txtNombre = New System.Windows.Forms.TextBox()
+        Me.txtApellido = New System.Windows.Forms.TextBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtEmailEnvio = New System.Windows.Forms.TextBox()
         Me.cbFormaDeEntrega = New System.Windows.Forms.ComboBox()
@@ -65,14 +69,14 @@ Partial Class frmAltaOrdenLaboratorio
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
         Me.btnBuscar = New System.Windows.Forms.Button()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFechaActual = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvEstudios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
@@ -168,13 +172,31 @@ Partial Class frmAltaOrdenLaboratorio
         Me.btnRegresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnRegresar.UseVisualStyleBackColor = True
         '
-        'DataGridView1
+        'dgvEstudios
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(10, 333)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(514, 139)
-        Me.DataGridView1.TabIndex = 29
+        Me.dgvEstudios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvEstudios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvEstudios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Colum2, Me.Column3})
+        Me.dgvEstudios.Location = New System.Drawing.Point(10, 333)
+        Me.dgvEstudios.Name = "dgvEstudios"
+        Me.dgvEstudios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
+        Me.dgvEstudios.Size = New System.Drawing.Size(514, 139)
+        Me.dgvEstudios.TabIndex = 29
+        '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Num. Orden"
+        Me.Column1.Name = "Column1"
+        '
+        'Colum2
+        '
+        Me.Colum2.HeaderText = "Estudio"
+        Me.Colum2.Name = "Colum2"
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Precio"
+        Me.Column3.Name = "Column3"
         '
         'GroupBox3
         '
@@ -304,15 +326,17 @@ Partial Class frmAltaOrdenLaboratorio
         '
         'txtFolio
         '
-        Me.txtFolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFolio.Location = New System.Drawing.Point(45, 35)
         Me.txtFolio.Name = "txtFolio"
-        Me.txtFolio.Size = New System.Drawing.Size(77, 20)
+        Me.txtFolio.Size = New System.Drawing.Size(77, 29)
         Me.txtFolio.TabIndex = 27
+        Me.txtFolio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'GroupBox2
         '
         Me.GroupBox2.BackColor = System.Drawing.Color.SteelBlue
+        Me.GroupBox2.Controls.Add(Me.btnEliminarEstudio)
         Me.GroupBox2.Controls.Add(Me.cbRecibi)
         Me.GroupBox2.Controls.Add(Me.Label15)
         Me.GroupBox2.Controls.Add(Me.btnAgregarEstudio)
@@ -331,11 +355,25 @@ Partial Class frmAltaOrdenLaboratorio
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Datos de la orden"
         '
+        'btnEliminarEstudio
+        '
+        Me.btnEliminarEstudio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEliminarEstudio.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnEliminarEstudio.Image = CType(resources.GetObject("btnEliminarEstudio.Image"), System.Drawing.Image)
+        Me.btnEliminarEstudio.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnEliminarEstudio.Location = New System.Drawing.Point(689, 19)
+        Me.btnEliminarEstudio.Name = "btnEliminarEstudio"
+        Me.btnEliminarEstudio.Size = New System.Drawing.Size(86, 80)
+        Me.btnEliminarEstudio.TabIndex = 15
+        Me.btnEliminarEstudio.Text = "Eliminar estudio"
+        Me.btnEliminarEstudio.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnEliminarEstudio.UseVisualStyleBackColor = True
+        '
         'cbRecibi
         '
         Me.cbRecibi.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbRecibi.FormattingEnabled = True
-        Me.cbRecibi.Location = New System.Drawing.Point(422, 69)
+        Me.cbRecibi.Location = New System.Drawing.Point(399, 69)
         Me.cbRecibi.Name = "cbRecibi"
         Me.cbRecibi.Size = New System.Drawing.Size(184, 21)
         Me.cbRecibi.TabIndex = 14
@@ -346,7 +384,7 @@ Partial Class frmAltaOrdenLaboratorio
         Me.Label15.BackColor = System.Drawing.Color.SteelBlue
         Me.Label15.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label15.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label15.Location = New System.Drawing.Point(351, 72)
+        Me.Label15.Location = New System.Drawing.Point(328, 72)
         Me.Label15.Name = "Label15"
         Me.Label15.Size = New System.Drawing.Size(65, 13)
         Me.Label15.TabIndex = 13
@@ -358,7 +396,7 @@ Partial Class frmAltaOrdenLaboratorio
         Me.btnAgregarEstudio.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btnAgregarEstudio.Image = CType(resources.GetObject("btnAgregarEstudio.Image"), System.Drawing.Image)
         Me.btnAgregarEstudio.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAgregarEstudio.Location = New System.Drawing.Point(646, 29)
+        Me.btnAgregarEstudio.Location = New System.Drawing.Point(597, 19)
         Me.btnAgregarEstudio.Name = "btnAgregarEstudio"
         Me.btnAgregarEstudio.Size = New System.Drawing.Size(86, 80)
         Me.btnAgregarEstudio.TabIndex = 12
@@ -370,7 +408,7 @@ Partial Class frmAltaOrdenLaboratorio
         '
         Me.cbMedico.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbMedico.FormattingEnabled = True
-        Me.cbMedico.Location = New System.Drawing.Point(422, 29)
+        Me.cbMedico.Location = New System.Drawing.Point(399, 29)
         Me.cbMedico.Name = "cbMedico"
         Me.cbMedico.Size = New System.Drawing.Size(184, 21)
         Me.cbMedico.TabIndex = 10
@@ -424,7 +462,7 @@ Partial Class frmAltaOrdenLaboratorio
         Me.Label12.BackColor = System.Drawing.Color.SteelBlue
         Me.Label12.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label12.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label12.Location = New System.Drawing.Point(364, 32)
+        Me.Label12.Location = New System.Drawing.Point(341, 32)
         Me.Label12.Name = "Label12"
         Me.Label12.Size = New System.Drawing.Size(52, 13)
         Me.Label12.TabIndex = 2
@@ -433,8 +471,8 @@ Partial Class frmAltaOrdenLaboratorio
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.SteelBlue
-        Me.GroupBox1.Controls.Add(Me.cbNombre)
-        Me.GroupBox1.Controls.Add(Me.cbApellido)
+        Me.GroupBox1.Controls.Add(Me.txtNombre)
+        Me.GroupBox1.Controls.Add(Me.txtApellido)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.txtEmailEnvio)
         Me.GroupBox1.Controls.Add(Me.cbFormaDeEntrega)
@@ -443,6 +481,7 @@ Partial Class frmAltaOrdenLaboratorio
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label4)
+        Me.GroupBox1.Controls.Add(Me.btnBuscar)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.GroupBox1.Location = New System.Drawing.Point(10, 79)
@@ -452,27 +491,21 @@ Partial Class frmAltaOrdenLaboratorio
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Datos del paciente"
         '
-        'cbNombre
+        'txtNombre
         '
-        Me.cbNombre.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cbNombre.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cbNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbNombre.FormattingEnabled = True
-        Me.cbNombre.Location = New System.Drawing.Point(563, 34)
-        Me.cbNombre.Name = "cbNombre"
-        Me.cbNombre.Size = New System.Drawing.Size(214, 21)
-        Me.cbNombre.TabIndex = 23
+        Me.txtNombre.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtNombre.Location = New System.Drawing.Point(563, 40)
+        Me.txtNombre.Name = "txtNombre"
+        Me.txtNombre.Size = New System.Drawing.Size(212, 20)
+        Me.txtNombre.TabIndex = 38
         '
-        'cbApellido
+        'txtApellido
         '
-        Me.cbApellido.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest
-        Me.cbApellido.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems
-        Me.cbApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.cbApellido.FormattingEnabled = True
-        Me.cbApellido.Location = New System.Drawing.Point(236, 34)
-        Me.cbApellido.Name = "cbApellido"
-        Me.cbApellido.Size = New System.Drawing.Size(243, 21)
-        Me.cbApellido.TabIndex = 22
+        Me.txtApellido.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtApellido.Location = New System.Drawing.Point(236, 39)
+        Me.txtApellido.Name = "txtApellido"
+        Me.txtApellido.Size = New System.Drawing.Size(243, 20)
+        Me.txtApellido.TabIndex = 37
         '
         'Label7
         '
@@ -498,7 +531,8 @@ Partial Class frmAltaOrdenLaboratorio
         '
         Me.cbFormaDeEntrega.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbFormaDeEntrega.FormattingEnabled = True
-        Me.cbFormaDeEntrega.Location = New System.Drawing.Point(240, 78)
+        Me.cbFormaDeEntrega.Items.AddRange(New Object() {"ENVIAR POR CORREO", "ENVIAR POR FAX", "EL PACIENTE RECOGE", "EL DOCTOR RECOGE"})
+        Me.cbFormaDeEntrega.Location = New System.Drawing.Point(236, 78)
         Me.cbFormaDeEntrega.Name = "cbFormaDeEntrega"
         Me.cbFormaDeEntrega.Size = New System.Drawing.Size(200, 21)
         Me.cbFormaDeEntrega.TabIndex = 7
@@ -517,11 +551,12 @@ Partial Class frmAltaOrdenLaboratorio
         '
         'txtIdPaciente
         '
-        Me.txtIdPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtIdPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIdPaciente.Location = New System.Drawing.Point(85, 34)
         Me.txtIdPaciente.Name = "txtIdPaciente"
-        Me.txtIdPaciente.Size = New System.Drawing.Size(77, 20)
+        Me.txtIdPaciente.Size = New System.Drawing.Size(77, 29)
         Me.txtIdPaciente.TabIndex = 1
+        Me.txtIdPaciente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label5
         '
@@ -529,7 +564,7 @@ Partial Class frmAltaOrdenLaboratorio
         Me.Label5.BackColor = System.Drawing.Color.SteelBlue
         Me.Label5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label5.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label5.Location = New System.Drawing.Point(491, 37)
+        Me.Label5.Location = New System.Drawing.Point(491, 43)
         Me.Label5.Name = "Label5"
         Me.Label5.Size = New System.Drawing.Size(68, 13)
         Me.Label5.TabIndex = 3
@@ -541,7 +576,7 @@ Partial Class frmAltaOrdenLaboratorio
         Me.Label3.BackColor = System.Drawing.Color.SteelBlue
         Me.Label3.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label3.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label3.Location = New System.Drawing.Point(6, 37)
+        Me.Label3.Location = New System.Drawing.Point(87, 18)
         Me.Label3.Name = "Label3"
         Me.Label3.Size = New System.Drawing.Size(73, 13)
         Me.Label3.TabIndex = 0
@@ -553,7 +588,7 @@ Partial Class frmAltaOrdenLaboratorio
         Me.Label4.BackColor = System.Drawing.Color.SteelBlue
         Me.Label4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.Label4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label4.Location = New System.Drawing.Point(168, 37)
+        Me.Label4.Location = New System.Drawing.Point(168, 42)
         Me.Label4.Name = "Label4"
         Me.Label4.Size = New System.Drawing.Size(62, 13)
         Me.Label4.TabIndex = 2
@@ -564,7 +599,7 @@ Partial Class frmAltaOrdenLaboratorio
         Me.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
         Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnBuscar.Location = New System.Drawing.Point(204, 44)
+        Me.btnBuscar.Location = New System.Drawing.Point(9, 34)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(65, 29)
         Me.btnBuscar.TabIndex = 21
@@ -572,12 +607,12 @@ Partial Class frmAltaOrdenLaboratorio
         Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.MiddleRight
         Me.btnBuscar.UseVisualStyleBackColor = True
         '
-        'DateTimePicker1
+        'dtpFechaActual
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(573, 40)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(220, 20)
-        Me.DateTimePicker1.TabIndex = 23
+        Me.dtpFechaActual.Location = New System.Drawing.Point(573, 40)
+        Me.dtpFechaActual.Name = "dtpFechaActual"
+        Me.dtpFechaActual.Size = New System.Drawing.Size(220, 20)
+        Me.dtpFechaActual.TabIndex = 23
         '
         'Label2
         '
@@ -636,19 +671,18 @@ Partial Class frmAltaOrdenLaboratorio
         Me.Controls.Add(Me.btnActualizar)
         Me.Controls.Add(Me.btnNuevaOrden)
         Me.Controls.Add(Me.btnRegresar)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgvEstudios)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.txtFolio)
-        Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.dtpFechaActual)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.Label1)
         Me.Controls.Add(Me.MenuStrip1)
         Me.Name = "frmAltaOrdenLaboratorio"
         Me.Text = "Alta orden laboratorio"
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvEstudios, System.ComponentModel.ISupportInitialize).EndInit()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
         Me.GroupBox2.ResumeLayout(False)
@@ -668,7 +702,7 @@ Partial Class frmAltaOrdenLaboratorio
     Friend WithEvents btnActualizar As System.Windows.Forms.Button
     Friend WithEvents btnNuevaOrden As System.Windows.Forms.Button
     Friend WithEvents btnRegresar As System.Windows.Forms.Button
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents dgvEstudios As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents btnDescuento As System.Windows.Forms.Button
     Friend WithEvents btnAbonar As System.Windows.Forms.Button
@@ -696,11 +730,10 @@ Partial Class frmAltaOrdenLaboratorio
     Friend WithEvents txtEmailEnvio As System.Windows.Forms.TextBox
     Friend WithEvents cbFormaDeEntrega As System.Windows.Forms.ComboBox
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents txtIdPaciente As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents dtpFechaActual As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnBuscar As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
@@ -708,6 +741,11 @@ Partial Class frmAltaOrdenLaboratorio
     Friend WithEvents ArchivoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AyudaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents cbNombre As System.Windows.Forms.ComboBox
-    Friend WithEvents cbApellido As System.Windows.Forms.ComboBox
+    Friend WithEvents txtNombre As System.Windows.Forms.TextBox
+    Friend WithEvents txtIdPaciente As System.Windows.Forms.TextBox
+    Friend WithEvents txtApellido As System.Windows.Forms.TextBox
+    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Colum2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents btnEliminarEstudio As System.Windows.Forms.Button
 End Class

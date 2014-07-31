@@ -30,3 +30,17 @@ C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.exe
 C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.xml
 C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.pdb
 C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\bin\Debug\PCCOMM.exe.config
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\bin\Debug\PCCOMM.exe
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\bin\Debug\PCCOMM.pdb
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\bin\Debug\PCCOMM.xml
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\bin\Debug\Interop.FPSpreadADO.dll
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\bin\Debug\Interop.FPUSpreadADO.dll
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\bin\Debug\Interop.MSDATASRC.dll
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\bin\Debug\AxInterop.FPSpreadADO.dll
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\bin\Debug\AxInterop.FPUSpreadADO.dll
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmAltaOrdenLaboratorio.resources
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmBuscarPaciente.resources
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmEditarOrdenLaboratorio.resources
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmResultados.resources
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.Resources.resources
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.vbproj.GenerateResource.Cache

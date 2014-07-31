@@ -15,10 +15,12 @@ Public Class conexionBD
                                             " ; database=" + dataBase + ""
     'VARIABLES PARA LA CONEXION Y LAS CONSULTAS
     Public conexionBD As SqlConnection
-    Public query As SqlCommand
+    Public queryCommand As SqlCommand
     Public queryBuilder As SqlCommandBuilder
     Public adaptador As SqlDataAdapter
     Public reader As SqlDataReader
+    Public obtenerDato As DataSet
+
 
     'CONEXION
     Public Sub conexion()
@@ -40,9 +42,9 @@ Public Class conexionBD
 
         conexion()
 
-        query = New SqlCommand(queryInsertar, conexionBD)
+        queryCommand = New SqlCommand(queryInsertar, conexionBD)
 
-        Dim filasAfectadas As Integer = query.ExecuteNonQuery()
+        Dim filasAfectadas As Integer = queryCommand.ExecuteNonQuery()
 
         conexionBD.Close()
 
@@ -61,9 +63,9 @@ Public Class conexionBD
 
         Dim queryEliminar As String = "DELETE FROM " + tabla + " WHERE " + condicion
 
-        query = New SqlCommand(queryEliminar, conexionBD)
+        queryCommand = New SqlCommand(queryEliminar, conexionBD)
 
-        Dim filasAfectadas As Integer = query.ExecuteNonQuery()
+        Dim filasAfectadas As Integer = queryCommand.ExecuteNonQuery()
 
         conexionBD.Close()
 
@@ -82,9 +84,9 @@ Public Class conexionBD
 
         Dim queryActualizar As String = "UPDATE " + tabla + " SET " + datos + " WHERE " + condicion
 
-        query = New SqlCommand(queryActualizar, conexionBD)
+        queryCommand = New SqlCommand(queryActualizar, conexionBD)
 
-        Dim filasAfectadas As Integer = query.ExecuteNonQuery()
+        Dim filasAfectadas As Integer = queryCommand.ExecuteNonQuery()
 
         conexionBD.Close()
 
@@ -97,7 +99,7 @@ Public Class conexionBD
     End Function
 
     'CONSULTA
-    Public Function consulta(queryConsulta As String) As SqlDataAdapter
+    Public Function consultaAdaptador(queryConsulta As String) As SqlDataAdapter
 
         conexion()
 
@@ -108,4 +110,80 @@ Public Class conexionBD
         Return adaptador
 
     End Function
+
+    'CONSULTA READER
+    Public Sub consultaReader(queryConsulta As String)
+
+        conexion()
+
+        queryCommand = New SqlCommand(queryConsulta, conexionBD)
+
+        reader = queryCommand.ExecuteReader()
+
+    End Sub
+
+    'CERRAR CONEXION
+    Public Sub cerrarConexion()
+
+        If conexionBD.State = ConnectionState.Open Then
+
+            conexionBD.Close()
+            MsgBox("si cerre la conexion")
+
+        Else
+            MsgBox("no cerre la conexion")
+        End If
+    End Sub
+
+    'LLENAR COMBOBOX
+    Public Sub llenarComboBox(miComboBox As ComboBox, columna As String, tabla As String, orderBy As String)
+
+        obtenerDato = New DataSet
+        obtenerDato.Reset()
+        adaptador = consultaAdaptador("SELECT " + columna + " FROM " + tabla + " ORDER BY " + orderBy + " ASC")
+        adaptador.Fill(obtenerDato, tabla)
+
+        miComboBox.DataSource = obtenerDato.Tables(tabla)
+        miComboBox.DisplayMember = columna
+        miComboBox.SelectedIndex = -1
+        frmAltaOrdenLaboratorio.entra = 1
+    End Sub
+
+    'LLENAR DATA GRID VIEW
+    Public Sub llenarDataGridView(miDataGridView As DataGridView, columnas As String, tabla As String, orderBy As String)
+
+        obtenerDato = New DataSet
+        obtenerDato.Reset()
+        adaptador = consultaAdaptador("SELECT " + columnas + " FROM " + tabla + " ORDER BY " + orderBy + " ASC")
+        adaptador.Fill(obtenerDato, tabla)
+
+        miDataGridView.DataSource = obtenerDato.Tables(0)
+
+    End Sub
+
+    'BUSCAR DATA GRID VIEW
+    Public Sub buscarDataGridView(miDataGridView As DataGridView, queryBuscar As String, tabla As String)
+
+        obtenerDato = New DataSet
+        obtenerDato.Reset()
+        adaptador = consultaAdaptador(queryBuscar)
+        adaptador.Fill(obtenerDato, tabla)
+
+        miDataGridView.DataSource = obtenerDato.Tables(0)
+
+    End Sub
+
+    'INSERTAR DATA GRID VIEW
+    Public Sub insertarDataGridView(miDataGridView As DataGridView, columnas As String, tabla As String, orderBy As String)
+
+        obtenerDato = New DataSet
+        obtenerDato.Reset()
+        adaptador = consultaAdaptador("SELECT " + columnas + " FROM " + tabla + " ORDER BY " + orderBy + " ASC")
+        adaptador.Fill(obtenerDato, tabla)
+
+        miDataGridView.DataSource = obtenerDato.Tables(tabla)
+        miDataGridView.Rows.Insert(columnas)
+    End Sub
+
 End Class
+

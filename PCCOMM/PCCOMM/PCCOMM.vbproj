@@ -77,6 +77,12 @@
     <Compile Include="frmAltaOrdenLaboratorio.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmBuscarPaciente.Designer.vb">
+      <DependentUpon>frmBuscarPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmBuscarPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmEditarOrdenLaboratorio.vb">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
   <ItemGroup>
     <EmbeddedResource Include="frmAltaOrdenLaboratorio.resx">
       <DependentUpon>frmAltaOrdenLaboratorio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBuscarPaciente.resx">
+      <DependentUpon>frmBuscarPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarOrdenLaboratorio.resx">
       <DependentUpon>frmEditarOrdenLaboratorio.vb</DependentUpon>
