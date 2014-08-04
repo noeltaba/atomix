@@ -27,21 +27,21 @@ Partial Class frmResultados
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
-        Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.txtFolio = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Button4 = New System.Windows.Forms.Button()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.TextBox6 = New System.Windows.Forms.TextBox()
-        Me.Label9 = New System.Windows.Forms.Label()
+        Me.txtEmail = New System.Windows.Forms.TextBox()
+        Me.lStatus = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
         Me.Label2 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
-        Me.TextBox5 = New System.Windows.Forms.TextBox()
+        Me.txtFechaOrden = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.TextBox4 = New System.Windows.Forms.TextBox()
-        Me.TextBox3 = New System.Windows.Forms.TextBox()
-        Me.TextBox1 = New System.Windows.Forms.TextBox()
+        Me.txtNombrePaciente = New System.Windows.Forms.TextBox()
+        Me.txtIdPaciente = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
         Me.Label3 = New System.Windows.Forms.Label()
         Me.Label4 = New System.Windows.Forms.Label()
@@ -99,13 +99,13 @@ Partial Class frmResultados
         Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
         Me.AyudaToolStripMenuItem.Text = "Ayuda"
         '
-        'TextBox2
+        'txtFolio
         '
-        Me.TextBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox2.Location = New System.Drawing.Point(7, 36)
-        Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(77, 29)
-        Me.TextBox2.TabIndex = 16
+        Me.txtFolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFolio.Location = New System.Drawing.Point(7, 36)
+        Me.txtFolio.Name = "txtFolio"
+        Me.txtFolio.Size = New System.Drawing.Size(77, 29)
+        Me.txtFolio.TabIndex = 16
         '
         'GroupBox1
         '
@@ -113,17 +113,17 @@ Partial Class frmResultados
         Me.GroupBox1.Controls.Add(Me.Button4)
         Me.GroupBox1.Controls.Add(Me.Button2)
         Me.GroupBox1.Controls.Add(Me.Button1)
-        Me.GroupBox1.Controls.Add(Me.TextBox6)
-        Me.GroupBox1.Controls.Add(Me.Label9)
+        Me.GroupBox1.Controls.Add(Me.txtEmail)
+        Me.GroupBox1.Controls.Add(Me.lStatus)
         Me.GroupBox1.Controls.Add(Me.Label8)
         Me.GroupBox1.Controls.Add(Me.Label2)
-        Me.GroupBox1.Controls.Add(Me.TextBox2)
+        Me.GroupBox1.Controls.Add(Me.txtFolio)
         Me.GroupBox1.Controls.Add(Me.Label7)
-        Me.GroupBox1.Controls.Add(Me.TextBox5)
+        Me.GroupBox1.Controls.Add(Me.txtFechaOrden)
         Me.GroupBox1.Controls.Add(Me.Label1)
         Me.GroupBox1.Controls.Add(Me.TextBox4)
-        Me.GroupBox1.Controls.Add(Me.TextBox3)
-        Me.GroupBox1.Controls.Add(Me.TextBox1)
+        Me.GroupBox1.Controls.Add(Me.txtNombrePaciente)
+        Me.GroupBox1.Controls.Add(Me.txtIdPaciente)
         Me.GroupBox1.Controls.Add(Me.Label5)
         Me.GroupBox1.Controls.Add(Me.Label3)
         Me.GroupBox1.Controls.Add(Me.Label4)
@@ -178,24 +178,25 @@ Partial Class frmResultados
         Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'TextBox6
+        'txtEmail
         '
-        Me.TextBox6.Location = New System.Drawing.Point(457, 73)
-        Me.TextBox6.Name = "TextBox6"
-        Me.TextBox6.Size = New System.Drawing.Size(169, 20)
-        Me.TextBox6.TabIndex = 19
+        Me.txtEmail.Location = New System.Drawing.Point(457, 73)
+        Me.txtEmail.Name = "txtEmail"
+        Me.txtEmail.Size = New System.Drawing.Size(169, 20)
+        Me.txtEmail.TabIndex = 19
         '
-        'Label9
+        'lStatus
         '
-        Me.Label9.AutoSize = True
-        Me.Label9.BackColor = System.Drawing.Color.SteelBlue
-        Me.Label9.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Label9.ForeColor = System.Drawing.Color.Red
-        Me.Label9.Location = New System.Drawing.Point(153, 15)
-        Me.Label9.Name = "Label9"
-        Me.Label9.Size = New System.Drawing.Size(73, 20)
-        Me.Label9.TabIndex = 18
-        Me.Label9.Text = "ACTIVA"
+        Me.lStatus.AutoSize = True
+        Me.lStatus.BackColor = System.Drawing.Color.SteelBlue
+        Me.lStatus.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lStatus.ForeColor = System.Drawing.Color.Red
+        Me.lStatus.Location = New System.Drawing.Point(153, 15)
+        Me.lStatus.Name = "lStatus"
+        Me.lStatus.Size = New System.Drawing.Size(73, 20)
+        Me.lStatus.TabIndex = 18
+        Me.lStatus.Text = "ACTIVA"
+        Me.lStatus.Visible = False
         '
         'Label8
         '
@@ -213,7 +214,7 @@ Partial Class frmResultados
         '
         Me.Label2.AutoSize = True
         Me.Label2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label2.Location = New System.Drawing.Point(456, 22)
+        Me.Label2.Location = New System.Drawing.Point(456, 18)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(46, 13)
         Me.Label2.TabIndex = 13
@@ -231,12 +232,12 @@ Partial Class frmResultados
         Me.Label7.TabIndex = 8
         Me.Label7.Text = "E- mail:"
         '
-        'TextBox5
+        'txtFechaOrden
         '
-        Me.TextBox5.Location = New System.Drawing.Point(508, 44)
-        Me.TextBox5.Name = "TextBox5"
-        Me.TextBox5.Size = New System.Drawing.Size(118, 20)
-        Me.TextBox5.TabIndex = 9
+        Me.txtFechaOrden.Location = New System.Drawing.Point(508, 44)
+        Me.txtFechaOrden.Name = "txtFechaOrden"
+        Me.txtFechaOrden.Size = New System.Drawing.Size(118, 20)
+        Me.txtFechaOrden.TabIndex = 9
         '
         'Label1
         '
@@ -255,20 +256,20 @@ Partial Class frmResultados
         Me.TextBox4.Size = New System.Drawing.Size(118, 20)
         Me.TextBox4.TabIndex = 5
         '
-        'TextBox3
+        'txtNombrePaciente
         '
-        Me.TextBox3.Location = New System.Drawing.Point(153, 44)
-        Me.TextBox3.Name = "TextBox3"
-        Me.TextBox3.Size = New System.Drawing.Size(243, 20)
-        Me.TextBox3.TabIndex = 4
+        Me.txtNombrePaciente.Location = New System.Drawing.Point(153, 44)
+        Me.txtNombrePaciente.Name = "txtNombrePaciente"
+        Me.txtNombrePaciente.Size = New System.Drawing.Size(243, 20)
+        Me.txtNombrePaciente.TabIndex = 4
         '
-        'TextBox1
+        'txtIdPaciente
         '
-        Me.TextBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.TextBox1.Location = New System.Drawing.Point(341, 17)
-        Me.TextBox1.Name = "TextBox1"
-        Me.TextBox1.Size = New System.Drawing.Size(55, 20)
-        Me.TextBox1.TabIndex = 1
+        Me.txtIdPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtIdPaciente.Location = New System.Drawing.Point(341, 17)
+        Me.txtIdPaciente.Name = "txtIdPaciente"
+        Me.txtIdPaciente.Size = New System.Drawing.Size(55, 20)
+        Me.txtIdPaciente.TabIndex = 1
         '
         'Label5
         '
@@ -556,21 +557,21 @@ Partial Class frmResultados
     Friend WithEvents ArchivoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents AyudaToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
-    Friend WithEvents TextBox2 As System.Windows.Forms.TextBox
+    Friend WithEvents txtFolio As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
-    Friend WithEvents Label9 As System.Windows.Forms.Label
+    Friend WithEvents lStatus As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
-    Friend WithEvents TextBox5 As System.Windows.Forms.TextBox
+    Friend WithEvents txtFechaOrden As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox3 As System.Windows.Forms.TextBox
-    Friend WithEvents TextBox1 As System.Windows.Forms.TextBox
+    Friend WithEvents txtNombrePaciente As System.Windows.Forms.TextBox
+    Friend WithEvents txtIdPaciente As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
-    Friend WithEvents TextBox6 As System.Windows.Forms.TextBox
+    Friend WithEvents txtEmail As System.Windows.Forms.TextBox
     Friend WithEvents Button1 As System.Windows.Forms.Button
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents TextBox12 As System.Windows.Forms.TextBox

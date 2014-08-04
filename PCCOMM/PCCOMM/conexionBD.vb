@@ -9,10 +9,8 @@ Public Class conexionBD
     Public Const password = "yagami"
     Public Const dataBase = "atomix"
 
-    Public Const cadenaConexion As String = "Server=" + Server +
-                                            "; uid=" + usuario +
-                                            " ; pwd=" + password +
-                                            " ; database=" + dataBase + ""
+    Public Const cadenaConexion As String = "Server=" + Server + "; uid=" + usuario + " ; pwd=" + password + " ; database=" + dataBase + ""
+
     'VARIABLES PARA LA CONEXION Y LAS CONSULTAS
     Public conexionBD As SqlConnection
     Public queryCommand As SqlCommand

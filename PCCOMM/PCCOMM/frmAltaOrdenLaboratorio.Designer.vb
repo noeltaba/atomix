@@ -35,7 +35,6 @@ Partial Class frmAltaOrdenLaboratorio
         Me.Colum2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.btnDescuento = New System.Windows.Forms.Button()
         Me.btnAbonar = New System.Windows.Forms.Button()
         Me.txtSaldo = New System.Windows.Forms.TextBox()
         Me.txtDescuento = New System.Windows.Forms.TextBox()
@@ -45,7 +44,6 @@ Partial Class frmAltaOrdenLaboratorio
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.txtFolio = New System.Windows.Forms.TextBox()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
         Me.btnEliminarEstudio = New System.Windows.Forms.Button()
         Me.cbRecibi = New System.Windows.Forms.ComboBox()
@@ -71,11 +69,12 @@ Partial Class frmAltaOrdenLaboratorio
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.dtpFechaActual = New System.Windows.Forms.DateTimePicker()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.Label1 = New System.Windows.Forms.Label()
         Me.MenuStrip1 = New System.Windows.Forms.MenuStrip()
         Me.ArchivoToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.VerToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
+        Me.Label1 = New System.Windows.Forms.Label()
+        Me.txtFolio = New System.Windows.Forms.TextBox()
         CType(Me.dgvEstudios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -201,7 +200,6 @@ Partial Class frmAltaOrdenLaboratorio
         'GroupBox3
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.LimeGreen
-        Me.GroupBox3.Controls.Add(Me.btnDescuento)
         Me.GroupBox3.Controls.Add(Me.btnAbonar)
         Me.GroupBox3.Controls.Add(Me.txtSaldo)
         Me.GroupBox3.Controls.Add(Me.txtDescuento)
@@ -220,27 +218,13 @@ Partial Class frmAltaOrdenLaboratorio
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Pagos"
         '
-        'btnDescuento
-        '
-        Me.btnDescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDescuento.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.btnDescuento.Image = CType(resources.GetObject("btnDescuento.Image"), System.Drawing.Image)
-        Me.btnDescuento.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnDescuento.Location = New System.Drawing.Point(171, 85)
-        Me.btnDescuento.Name = "btnDescuento"
-        Me.btnDescuento.Size = New System.Drawing.Size(86, 48)
-        Me.btnDescuento.TabIndex = 9
-        Me.btnDescuento.Text = "Descuento"
-        Me.btnDescuento.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnDescuento.UseVisualStyleBackColor = True
-        '
         'btnAbonar
         '
         Me.btnAbonar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAbonar.ForeColor = System.Drawing.SystemColors.ControlText
         Me.btnAbonar.Image = CType(resources.GetObject("btnAbonar.Image"), System.Drawing.Image)
         Me.btnAbonar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAbonar.Location = New System.Drawing.Point(171, 16)
+        Me.btnAbonar.Location = New System.Drawing.Point(171, 26)
         Me.btnAbonar.Name = "btnAbonar"
         Me.btnAbonar.Size = New System.Drawing.Size(86, 70)
         Me.btnAbonar.TabIndex = 8
@@ -323,15 +307,6 @@ Partial Class frmAltaOrdenLaboratorio
         Me.Label8.Size = New System.Drawing.Size(62, 13)
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "Sub-Total"
-        '
-        'txtFolio
-        '
-        Me.txtFolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFolio.Location = New System.Drawing.Point(45, 35)
-        Me.txtFolio.Name = "txtFolio"
-        Me.txtFolio.Size = New System.Drawing.Size(77, 29)
-        Me.txtFolio.TabIndex = 27
-        Me.txtFolio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'GroupBox2
         '
@@ -623,15 +598,6 @@ Partial Class frmAltaOrdenLaboratorio
         Me.Label2.TabIndex = 22
         Me.Label2.Text = "Fecha:"
         '
-        'Label1
-        '
-        Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(7, 44)
-        Me.Label1.Name = "Label1"
-        Me.Label1.Size = New System.Drawing.Size(32, 13)
-        Me.Label1.TabIndex = 20
-        Me.Label1.Text = "Folio:"
-        '
         'MenuStrip1
         '
         Me.MenuStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ArchivoToolStripMenuItem, Me.VerToolStripMenuItem, Me.AyudaToolStripMenuItem})
@@ -658,6 +624,24 @@ Partial Class frmAltaOrdenLaboratorio
         Me.AyudaToolStripMenuItem.Name = "AyudaToolStripMenuItem"
         Me.AyudaToolStripMenuItem.Size = New System.Drawing.Size(53, 20)
         Me.AyudaToolStripMenuItem.Text = "Ayuda"
+        '
+        'Label1
+        '
+        Me.Label1.AutoSize = True
+        Me.Label1.Location = New System.Drawing.Point(7, 44)
+        Me.Label1.Name = "Label1"
+        Me.Label1.Size = New System.Drawing.Size(32, 13)
+        Me.Label1.TabIndex = 20
+        Me.Label1.Text = "Folio:"
+        '
+        'txtFolio
+        '
+        Me.txtFolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtFolio.Location = New System.Drawing.Point(45, 35)
+        Me.txtFolio.Name = "txtFolio"
+        Me.txtFolio.Size = New System.Drawing.Size(77, 29)
+        Me.txtFolio.TabIndex = 27
+        Me.txtFolio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'frmAltaOrdenLaboratorio
         '
@@ -704,7 +688,6 @@ Partial Class frmAltaOrdenLaboratorio
     Friend WithEvents btnRegresar As System.Windows.Forms.Button
     Friend WithEvents dgvEstudios As System.Windows.Forms.DataGridView
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
-    Friend WithEvents btnDescuento As System.Windows.Forms.Button
     Friend WithEvents btnAbonar As System.Windows.Forms.Button
     Friend WithEvents txtSaldo As System.Windows.Forms.TextBox
     Friend WithEvents txtDescuento As System.Windows.Forms.TextBox
@@ -714,7 +697,6 @@ Partial Class frmAltaOrdenLaboratorio
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents txtFolio As System.Windows.Forms.TextBox
     Friend WithEvents GroupBox2 As System.Windows.Forms.GroupBox
     Friend WithEvents cbRecibi As System.Windows.Forms.ComboBox
     Friend WithEvents Label15 As System.Windows.Forms.Label
@@ -736,7 +718,6 @@ Partial Class frmAltaOrdenLaboratorio
     Friend WithEvents dtpFechaActual As System.Windows.Forms.DateTimePicker
     Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents btnBuscar As System.Windows.Forms.Button
-    Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents ArchivoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
     Friend WithEvents VerToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -748,4 +729,6 @@ Partial Class frmAltaOrdenLaboratorio
     Friend WithEvents Colum2 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btnEliminarEstudio As System.Windows.Forms.Button
+    Friend WithEvents Label1 As System.Windows.Forms.Label
+    Friend WithEvents txtFolio As System.Windows.Forms.TextBox
 End Class
