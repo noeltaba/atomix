@@ -6,6 +6,7 @@ Public Class frmAltaOrdenLaboratorio
     Dim obtenerDato As DataSet
     Dim conexionbd As New conexionBD
     Public entra As Integer = 0
+
     ''EVENTO CARGA FORMULARIO
     Private Sub frmAltaOrdenLaboratorio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
@@ -72,6 +73,7 @@ Public Class frmAltaOrdenLaboratorio
             dgvEstudios.Rows.RemoveAt(dgvEstudios.CurrentRow.Index)
             sumarDataGridView()
             sumarSaldo()
+
             If txtSubTotal.Text = "0.00" Then
 
                 txtAnticipo.Text = "0.00"
@@ -79,13 +81,11 @@ Public Class frmAltaOrdenLaboratorio
                 sumarSaldo()
 
             End If
-
         End If
     End Sub
 
     Private Sub btnNuevaOrden_Click(sender As Object, e As EventArgs) Handles btnNuevaOrden.Click
         limpiar()
-
     End Sub
 
     Private Sub btnAbonar_Click(sender As Object, e As EventArgs) Handles btnAbonar.Click
@@ -109,15 +109,18 @@ Public Class frmAltaOrdenLaboratorio
             Dim sqlPago As String = "INSERT INTO AR_Pagos (FKOrden,Descuento,Pago,Fecha,subtotal,abono,total)" +
                                     "VALUES (" & fkOrden & "," & descuento & "," & pago & ",GETDATE()," & subTotal & "," & abono & "," & pago & ")"
 
-            If conexionbd.insertar(sqlOrden) Then
-                If conexionbd.insertar(sqlPago) Then
+            If conexionbd.insertar(sqlOrden) Then 'se inserta el registro de la orden 
+
+                llenarDetalleOrden(fkOrden, pago) 'se inserta el registro detalle orden
+
+                If conexionbd.insertar(sqlPago) Then 'se inserta el registro de pago
                     txtFolio.Text = (obtenerFolio() - 1)
                     MsgBox("Registro de datos exitoso")
                 Else
                     MsgBox("No se realizo el pago")
                 End If
             Else
-                MsgBox("Erro antes de insertar el pago")
+                MsgBox("Error al insertar orden de pago")
             End If
         End If
 
@@ -165,9 +168,7 @@ Public Class frmAltaOrdenLaboratorio
             ' Sumamos el valor.
             resultado += Convert.ToDecimal(valorCelda)
         Next
-
         txtSubTotal.Text = String.Format("{0:N2}", resultado)
-
     End Sub
     '**suma el saldo final restando el descuento y anticipo del subtotal
     Public Sub sumarSaldo()
@@ -208,7 +209,7 @@ Public Class frmAltaOrdenLaboratorio
     'sirve para verificar que los campos tengan datos antes de cargar un estudio o intentar eliminarlo
     Private Function vacio()
 
-        If txtApellido.Text = "" Or cbEstudio.Text = "" Then
+        If txtApellido.Text = "" Or cbEstudio.Text = "" Or cbRecibi.Text = "" Then
 
             Return True
 
@@ -235,6 +236,23 @@ Public Class frmAltaOrdenLaboratorio
 
         Return folio
     End Function
+    'llenar detalle orden
+    Private Sub llenarDetalleOrden(fkOrden As String, total As Double)
+
+        For Each row As DataGridViewRow In dgvEstudios.Rows
+
+            Dim analisis As String = row.Cells("rowEstudio").Value
+
+            Dim queryInsertarDetalleOrden = "INSERT INTO AR_OrdenDetalles (FKOrden,FKAnalisis,Total,IVA) VALUES (" & fkOrden & ",(SELECT PKAnalisis FROM CT_Analisis WHERE Analisis = '" & analisis & "')," & total & ",16)"
+
+            If analisis = "" Then Exit For
+
+            If Not conexionbd.insertar(queryInsertarDetalleOrden) Then
+                MsgBox("Error al intentar insertar detalle de orden")
+            End If
+        Next
+
+    End Sub
     ''FIN FUNCIONES APLICACION
 
 End Class

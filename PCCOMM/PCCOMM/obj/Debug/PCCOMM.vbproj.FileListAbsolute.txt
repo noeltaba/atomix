@@ -44,3 +44,4 @@ C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmEditar
 C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmResultados.resources
 C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.Resources.resources
 C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.vbproj.GenerateResource.Cache
+C:\Users\Kioriy\Documents\GitHub\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmNuevoPaciente.resources

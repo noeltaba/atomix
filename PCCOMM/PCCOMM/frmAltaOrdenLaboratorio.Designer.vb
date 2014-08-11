@@ -31,9 +31,6 @@ Partial Class frmAltaOrdenLaboratorio
         Me.btnNuevaOrden = New System.Windows.Forms.Button()
         Me.btnRegresar = New System.Windows.Forms.Button()
         Me.dgvEstudios = New System.Windows.Forms.DataGridView()
-        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Colum2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
-        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
         Me.btnAbonar = New System.Windows.Forms.Button()
         Me.txtSaldo = New System.Windows.Forms.TextBox()
@@ -75,6 +72,9 @@ Partial Class frmAltaOrdenLaboratorio
         Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtFolio = New System.Windows.Forms.TextBox()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.rowEstudio = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         CType(Me.dgvEstudios, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.GroupBox3.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -175,27 +175,12 @@ Partial Class frmAltaOrdenLaboratorio
         '
         Me.dgvEstudios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvEstudios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvEstudios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Colum2, Me.Column3})
+        Me.dgvEstudios.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.rowEstudio, Me.Column3})
         Me.dgvEstudios.Location = New System.Drawing.Point(10, 333)
         Me.dgvEstudios.Name = "dgvEstudios"
         Me.dgvEstudios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect
         Me.dgvEstudios.Size = New System.Drawing.Size(514, 139)
         Me.dgvEstudios.TabIndex = 29
-        '
-        'Column1
-        '
-        Me.Column1.HeaderText = "Num. Orden"
-        Me.Column1.Name = "Column1"
-        '
-        'Colum2
-        '
-        Me.Colum2.HeaderText = "Estudio"
-        Me.Colum2.Name = "Colum2"
-        '
-        'Column3
-        '
-        Me.Column3.HeaderText = "Precio"
-        Me.Column3.Name = "Column3"
         '
         'GroupBox3
         '
@@ -643,6 +628,21 @@ Partial Class frmAltaOrdenLaboratorio
         Me.txtFolio.TabIndex = 27
         Me.txtFolio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Num. Orden"
+        Me.Column1.Name = "Column1"
+        '
+        'rowEstudio
+        '
+        Me.rowEstudio.HeaderText = "Estudio"
+        Me.rowEstudio.Name = "rowEstudio"
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Precio"
+        Me.Column3.Name = "Column3"
+        '
         'frmAltaOrdenLaboratorio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -725,10 +725,10 @@ Partial Class frmAltaOrdenLaboratorio
     Friend WithEvents txtNombre As System.Windows.Forms.TextBox
     Friend WithEvents txtIdPaciente As System.Windows.Forms.TextBox
     Friend WithEvents txtApellido As System.Windows.Forms.TextBox
-    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Colum2 As System.Windows.Forms.DataGridViewTextBoxColumn
-    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
     Friend WithEvents btnEliminarEstudio As System.Windows.Forms.Button
     Friend WithEvents Label1 As System.Windows.Forms.Label
     Friend WithEvents txtFolio As System.Windows.Forms.TextBox
+    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents rowEstudio As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class

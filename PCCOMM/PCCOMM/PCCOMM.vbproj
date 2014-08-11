@@ -90,6 +90,12 @@
       <DependentUpon>frmEditarOrdenLaboratorio.vb</DependentUpon>
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmNuevoPaciente.Designer.vb">
+      <DependentUpon>frmNuevoPaciente.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmNuevoPaciente.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmResultados.Designer.vb">
       <DependentUpon>frmResultados.vb</DependentUpon>
     </Compile>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmEditarOrdenLaboratorio.resx">
       <DependentUpon>frmEditarOrdenLaboratorio.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNuevoPaciente.resx">
+      <DependentUpon>frmNuevoPaciente.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmResultados.resx">
       <DependentUpon>frmResultados.vb</DependentUpon>

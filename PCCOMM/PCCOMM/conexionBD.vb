@@ -126,10 +126,6 @@ Public Class conexionBD
         If conexionBD.State = ConnectionState.Open Then
 
             conexionBD.Close()
-            MsgBox("si cerre la conexion")
-
-        Else
-            MsgBox("no cerre la conexion")
         End If
     End Sub
 

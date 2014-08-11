@@ -53,7 +53,6 @@ Partial Class frmEditarOrdenLaboratorio
         Me.txtFolio = New System.Windows.Forms.TextBox()
         Me.btnBuscar = New System.Windows.Forms.Button()
         Me.GroupBox3 = New System.Windows.Forms.GroupBox()
-        Me.btnDescuento = New System.Windows.Forms.Button()
         Me.btnAbonar = New System.Windows.Forms.Button()
         Me.txtSaldo = New System.Windows.Forms.TextBox()
         Me.txtDescuento = New System.Windows.Forms.TextBox()
@@ -63,9 +62,6 @@ Partial Class frmEditarOrdenLaboratorio
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.ToolStrip1 = New System.Windows.Forms.ToolStrip()
-        Me.ToolStripButton3 = New System.Windows.Forms.ToolStripButton()
-        Me.ToolStripButton4 = New System.Windows.Forms.ToolStripButton()
         Me.dgvOrdenes = New System.Windows.Forms.DataGridView()
         Me.btnRegresar = New System.Windows.Forms.Button()
         Me.btnActualizar = New System.Windows.Forms.Button()
@@ -78,14 +74,13 @@ Partial Class frmEditarOrdenLaboratorio
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        Me.ToolStrip1.SuspendLayout()
         CType(Me.dgvOrdenes, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'Label1
         '
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(12, 104)
+        Me.Label1.Location = New System.Drawing.Point(12, 44)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(32, 13)
         Me.Label1.TabIndex = 0
@@ -102,7 +97,7 @@ Partial Class frmEditarOrdenLaboratorio
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(532, 104)
+        Me.Label2.Location = New System.Drawing.Point(532, 44)
         Me.Label2.Name = "Label2"
         Me.Label2.Size = New System.Drawing.Size(40, 13)
         Me.Label2.TabIndex = 3
@@ -110,7 +105,7 @@ Partial Class frmEditarOrdenLaboratorio
         '
         'DateTimePicker1
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(578, 100)
+        Me.DateTimePicker1.Location = New System.Drawing.Point(578, 40)
         Me.DateTimePicker1.Name = "DateTimePicker1"
         Me.DateTimePicker1.Size = New System.Drawing.Size(220, 20)
         Me.DateTimePicker1.TabIndex = 4
@@ -130,7 +125,7 @@ Partial Class frmEditarOrdenLaboratorio
         Me.GroupBox1.Controls.Add(Me.Label4)
         Me.GroupBox1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox1.Location = New System.Drawing.Point(15, 145)
+        Me.GroupBox1.Location = New System.Drawing.Point(15, 85)
         Me.GroupBox1.Name = "GroupBox1"
         Me.GroupBox1.Size = New System.Drawing.Size(783, 121)
         Me.GroupBox1.TabIndex = 5
@@ -266,7 +261,7 @@ Partial Class frmEditarOrdenLaboratorio
         Me.GroupBox2.Controls.Add(Me.Label12)
         Me.GroupBox2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.GroupBox2.ForeColor = System.Drawing.SystemColors.ControlLightLight
-        Me.GroupBox2.Location = New System.Drawing.Point(15, 272)
+        Me.GroupBox2.Location = New System.Drawing.Point(15, 212)
         Me.GroupBox2.Name = "GroupBox2"
         Me.GroupBox2.Size = New System.Drawing.Size(783, 121)
         Me.GroupBox2.TabIndex = 10
@@ -363,7 +358,7 @@ Partial Class frmEditarOrdenLaboratorio
         'txtFolio
         '
         Me.txtFolio.Font = New System.Drawing.Font("Microsoft Sans Serif", 14.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtFolio.Location = New System.Drawing.Point(50, 95)
+        Me.txtFolio.Location = New System.Drawing.Point(50, 35)
         Me.txtFolio.Name = "txtFolio"
         Me.txtFolio.Size = New System.Drawing.Size(77, 29)
         Me.txtFolio.TabIndex = 10
@@ -372,7 +367,7 @@ Partial Class frmEditarOrdenLaboratorio
         '
         Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
         Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft
-        Me.btnBuscar.Location = New System.Drawing.Point(133, 95)
+        Me.btnBuscar.Location = New System.Drawing.Point(133, 35)
         Me.btnBuscar.Name = "btnBuscar"
         Me.btnBuscar.Size = New System.Drawing.Size(75, 29)
         Me.btnBuscar.TabIndex = 2
@@ -383,7 +378,6 @@ Partial Class frmEditarOrdenLaboratorio
         'GroupBox3
         '
         Me.GroupBox3.BackColor = System.Drawing.Color.LimeGreen
-        Me.GroupBox3.Controls.Add(Me.btnDescuento)
         Me.GroupBox3.Controls.Add(Me.btnAbonar)
         Me.GroupBox3.Controls.Add(Me.txtSaldo)
         Me.GroupBox3.Controls.Add(Me.txtDescuento)
@@ -393,32 +387,19 @@ Partial Class frmEditarOrdenLaboratorio
         Me.GroupBox3.Controls.Add(Me.Label13)
         Me.GroupBox3.Controls.Add(Me.Label11)
         Me.GroupBox3.Controls.Add(Me.Label8)
-        Me.GroupBox3.Location = New System.Drawing.Point(535, 399)
+        Me.GroupBox3.Location = New System.Drawing.Point(535, 339)
         Me.GroupBox3.Name = "GroupBox3"
         Me.GroupBox3.Size = New System.Drawing.Size(263, 139)
         Me.GroupBox3.TabIndex = 11
         Me.GroupBox3.TabStop = False
         Me.GroupBox3.Text = "Pagos"
         '
-        'btnDescuento
-        '
-        Me.btnDescuento.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnDescuento.Image = CType(resources.GetObject("btnDescuento.Image"), System.Drawing.Image)
-        Me.btnDescuento.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnDescuento.Location = New System.Drawing.Point(171, 85)
-        Me.btnDescuento.Name = "btnDescuento"
-        Me.btnDescuento.Size = New System.Drawing.Size(86, 48)
-        Me.btnDescuento.TabIndex = 9
-        Me.btnDescuento.Text = "Descuento"
-        Me.btnDescuento.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.btnDescuento.UseVisualStyleBackColor = True
-        '
         'btnAbonar
         '
         Me.btnAbonar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnAbonar.Image = CType(resources.GetObject("btnAbonar.Image"), System.Drawing.Image)
         Me.btnAbonar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnAbonar.Location = New System.Drawing.Point(171, 16)
+        Me.btnAbonar.Location = New System.Drawing.Point(171, 24)
         Me.btnAbonar.Name = "btnAbonar"
         Me.btnAbonar.Size = New System.Drawing.Size(86, 70)
         Me.btnAbonar.TabIndex = 8
@@ -494,40 +475,10 @@ Partial Class frmEditarOrdenLaboratorio
         Me.Label8.TabIndex = 0
         Me.Label8.Text = "Sub-Total"
         '
-        'ToolStrip1
-        '
-        Me.ToolStrip1.Items.AddRange(New System.Windows.Forms.ToolStripItem() {Me.ToolStripButton3, Me.ToolStripButton4})
-        Me.ToolStrip1.Location = New System.Drawing.Point(0, 24)
-        Me.ToolStrip1.Name = "ToolStrip1"
-        Me.ToolStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System
-        Me.ToolStrip1.Size = New System.Drawing.Size(810, 55)
-        Me.ToolStrip1.TabIndex = 7
-        Me.ToolStrip1.Text = "ToolStrip1"
-        '
-        'ToolStripButton3
-        '
-        Me.ToolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton3.Image = CType(resources.GetObject("ToolStripButton3.Image"), System.Drawing.Image)
-        Me.ToolStripButton3.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.ToolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton3.Name = "ToolStripButton3"
-        Me.ToolStripButton3.Size = New System.Drawing.Size(52, 52)
-        Me.ToolStripButton3.Text = "ToolStripButton3"
-        '
-        'ToolStripButton4
-        '
-        Me.ToolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image
-        Me.ToolStripButton4.Image = CType(resources.GetObject("ToolStripButton4.Image"), System.Drawing.Image)
-        Me.ToolStripButton4.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None
-        Me.ToolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta
-        Me.ToolStripButton4.Name = "ToolStripButton4"
-        Me.ToolStripButton4.Size = New System.Drawing.Size(52, 52)
-        Me.ToolStripButton4.Text = "ToolStripButton4"
-        '
         'dgvOrdenes
         '
         Me.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.dgvOrdenes.Location = New System.Drawing.Point(15, 399)
+        Me.dgvOrdenes.Location = New System.Drawing.Point(15, 339)
         Me.dgvOrdenes.Name = "dgvOrdenes"
         Me.dgvOrdenes.Size = New System.Drawing.Size(514, 139)
         Me.dgvOrdenes.TabIndex = 12
@@ -537,7 +488,7 @@ Partial Class frmEditarOrdenLaboratorio
         Me.btnRegresar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnRegresar.Image = CType(resources.GetObject("btnRegresar.Image"), System.Drawing.Image)
         Me.btnRegresar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnRegresar.Location = New System.Drawing.Point(711, 546)
+        Me.btnRegresar.Location = New System.Drawing.Point(711, 486)
         Me.btnRegresar.Name = "btnRegresar"
         Me.btnRegresar.Size = New System.Drawing.Size(91, 65)
         Me.btnRegresar.TabIndex = 13
@@ -549,7 +500,7 @@ Partial Class frmEditarOrdenLaboratorio
         '
         Me.btnActualizar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnActualizar.Image = CType(resources.GetObject("btnActualizar.Image"), System.Drawing.Image)
-        Me.btnActualizar.Location = New System.Drawing.Point(517, 546)
+        Me.btnActualizar.Location = New System.Drawing.Point(517, 486)
         Me.btnActualizar.Name = "btnActualizar"
         Me.btnActualizar.Size = New System.Drawing.Size(91, 65)
         Me.btnActualizar.TabIndex = 15
@@ -562,7 +513,7 @@ Partial Class frmEditarOrdenLaboratorio
         Me.btnImprimirOrdenCliente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnImprimirOrdenCliente.Image = CType(resources.GetObject("btnImprimirOrdenCliente.Image"), System.Drawing.Image)
         Me.btnImprimirOrdenCliente.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnImprimirOrdenCliente.Location = New System.Drawing.Point(311, 546)
+        Me.btnImprimirOrdenCliente.Location = New System.Drawing.Point(311, 486)
         Me.btnImprimirOrdenCliente.Name = "btnImprimirOrdenCliente"
         Me.btnImprimirOrdenCliente.Size = New System.Drawing.Size(91, 65)
         Me.btnImprimirOrdenCliente.TabIndex = 16
@@ -574,7 +525,7 @@ Partial Class frmEditarOrdenLaboratorio
         '
         Me.btnTicket.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnTicket.Image = CType(resources.GetObject("btnTicket.Image"), System.Drawing.Image)
-        Me.btnTicket.Location = New System.Drawing.Point(214, 546)
+        Me.btnTicket.Location = New System.Drawing.Point(214, 486)
         Me.btnTicket.Name = "btnTicket"
         Me.btnTicket.Size = New System.Drawing.Size(91, 65)
         Me.btnTicket.TabIndex = 17
@@ -587,7 +538,7 @@ Partial Class frmEditarOrdenLaboratorio
         Me.btnImprimirOrdenLaboratorio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnImprimirOrdenLaboratorio.Image = CType(resources.GetObject("btnImprimirOrdenLaboratorio.Image"), System.Drawing.Image)
         Me.btnImprimirOrdenLaboratorio.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnImprimirOrdenLaboratorio.Location = New System.Drawing.Point(112, 546)
+        Me.btnImprimirOrdenLaboratorio.Location = New System.Drawing.Point(112, 486)
         Me.btnImprimirOrdenLaboratorio.Name = "btnImprimirOrdenLaboratorio"
         Me.btnImprimirOrdenLaboratorio.Size = New System.Drawing.Size(96, 65)
         Me.btnImprimirOrdenLaboratorio.TabIndex = 18
@@ -600,7 +551,7 @@ Partial Class frmEditarOrdenLaboratorio
         Me.btnEtiqueta.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnEtiqueta.Image = CType(resources.GetObject("btnEtiqueta.Image"), System.Drawing.Image)
         Me.btnEtiqueta.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnEtiqueta.Location = New System.Drawing.Point(15, 546)
+        Me.btnEtiqueta.Location = New System.Drawing.Point(15, 486)
         Me.btnEtiqueta.Name = "btnEtiqueta"
         Me.btnEtiqueta.Size = New System.Drawing.Size(91, 65)
         Me.btnEtiqueta.TabIndex = 19
@@ -613,7 +564,7 @@ Partial Class frmEditarOrdenLaboratorio
         Me.btnGuardarOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.btnGuardarOrden.Image = CType(resources.GetObject("btnGuardarOrden.Image"), System.Drawing.Image)
         Me.btnGuardarOrden.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.btnGuardarOrden.Location = New System.Drawing.Point(614, 546)
+        Me.btnGuardarOrden.Location = New System.Drawing.Point(614, 486)
         Me.btnGuardarOrden.Name = "btnGuardarOrden"
         Me.btnGuardarOrden.Size = New System.Drawing.Size(91, 65)
         Me.btnGuardarOrden.TabIndex = 14
@@ -626,7 +577,7 @@ Partial Class frmEditarOrdenLaboratorio
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.BackColor = System.Drawing.Color.Silver
-        Me.ClientSize = New System.Drawing.Size(810, 619)
+        Me.ClientSize = New System.Drawing.Size(810, 560)
         Me.Controls.Add(Me.btnEtiqueta)
         Me.Controls.Add(Me.btnImprimirOrdenLaboratorio)
         Me.Controls.Add(Me.btnTicket)
@@ -639,7 +590,6 @@ Partial Class frmEditarOrdenLaboratorio
         Me.Controls.Add(Me.txtFolio)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.ToolStrip1)
         Me.Controls.Add(Me.DateTimePicker1)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnBuscar)
@@ -657,8 +607,6 @@ Partial Class frmEditarOrdenLaboratorio
         Me.GroupBox2.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        Me.ToolStrip1.ResumeLayout(False)
-        Me.ToolStrip1.PerformLayout()
         CType(Me.dgvOrdenes, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
@@ -702,10 +650,6 @@ Partial Class frmEditarOrdenLaboratorio
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents ToolStrip1 As System.Windows.Forms.ToolStrip
-    Friend WithEvents ToolStripButton3 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents ToolStripButton4 As System.Windows.Forms.ToolStripButton
-    Friend WithEvents btnDescuento As System.Windows.Forms.Button
     Friend WithEvents btnAbonar As System.Windows.Forms.Button
     Friend WithEvents dgvOrdenes As System.Windows.Forms.DataGridView
     Friend WithEvents btnRegresar As System.Windows.Forms.Button

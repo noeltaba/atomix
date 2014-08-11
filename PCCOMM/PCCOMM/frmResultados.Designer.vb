@@ -29,17 +29,16 @@ Partial Class frmResultados
         Me.AyudaToolStripMenuItem = New System.Windows.Forms.ToolStripMenuItem()
         Me.txtFolio = New System.Windows.Forms.TextBox()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
-        Me.Button4 = New System.Windows.Forms.Button()
-        Me.Button2 = New System.Windows.Forms.Button()
-        Me.Button1 = New System.Windows.Forms.Button()
+        Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
+        Me.btnLimpiar = New System.Windows.Forms.Button()
+        Me.btnBuscar = New System.Windows.Forms.Button()
+        Me.btnAceptar = New System.Windows.Forms.Button()
         Me.txtEmail = New System.Windows.Forms.TextBox()
         Me.lStatus = New System.Windows.Forms.Label()
         Me.Label8 = New System.Windows.Forms.Label()
-        Me.Label2 = New System.Windows.Forms.Label()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtFechaOrden = New System.Windows.Forms.TextBox()
         Me.Label1 = New System.Windows.Forms.Label()
-        Me.TextBox4 = New System.Windows.Forms.TextBox()
         Me.txtNombrePaciente = New System.Windows.Forms.TextBox()
         Me.txtIdPaciente = New System.Windows.Forms.TextBox()
         Me.Label5 = New System.Windows.Forms.Label()
@@ -59,17 +58,21 @@ Partial Class frmResultados
         Me.Label13 = New System.Windows.Forms.Label()
         Me.Label11 = New System.Windows.Forms.Label()
         Me.Label6 = New System.Windows.Forms.Label()
-        Me.DataGridView1 = New System.Windows.Forms.DataGridView()
+        Me.dgvResultados = New System.Windows.Forms.DataGridView()
+        Me.rowTipoAnalisis = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.rowResultado = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.rowUnidad = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.rowValorReferencia = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.Label15 = New System.Windows.Forms.Label()
         Me.TextBox13 = New System.Windows.Forms.TextBox()
-        Me.Button8 = New System.Windows.Forms.Button()
-        Me.Button7 = New System.Windows.Forms.Button()
-        Me.Button6 = New System.Windows.Forms.Button()
-        Me.Button5 = New System.Windows.Forms.Button()
+        Me.btnImprimirResultados = New System.Windows.Forms.Button()
+        Me.btnEnviar = New System.Windows.Forms.Button()
+        Me.btnGuardarOrden = New System.Windows.Forms.Button()
+        Me.btnRegresar = New System.Windows.Forms.Button()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox1.SuspendLayout()
         Me.GroupBox3.SuspendLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).BeginInit()
+        CType(Me.dgvResultados, System.ComponentModel.ISupportInitialize).BeginInit()
         Me.SuspendLayout()
         '
         'MenuStrip1
@@ -106,22 +109,22 @@ Partial Class frmResultados
         Me.txtFolio.Name = "txtFolio"
         Me.txtFolio.Size = New System.Drawing.Size(77, 29)
         Me.txtFolio.TabIndex = 16
+        Me.txtFolio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'GroupBox1
         '
         Me.GroupBox1.BackColor = System.Drawing.Color.SteelBlue
-        Me.GroupBox1.Controls.Add(Me.Button4)
-        Me.GroupBox1.Controls.Add(Me.Button2)
-        Me.GroupBox1.Controls.Add(Me.Button1)
+        Me.GroupBox1.Controls.Add(Me.dtpFecha)
+        Me.GroupBox1.Controls.Add(Me.btnLimpiar)
+        Me.GroupBox1.Controls.Add(Me.btnBuscar)
+        Me.GroupBox1.Controls.Add(Me.btnAceptar)
         Me.GroupBox1.Controls.Add(Me.txtEmail)
         Me.GroupBox1.Controls.Add(Me.lStatus)
         Me.GroupBox1.Controls.Add(Me.Label8)
-        Me.GroupBox1.Controls.Add(Me.Label2)
         Me.GroupBox1.Controls.Add(Me.txtFolio)
         Me.GroupBox1.Controls.Add(Me.Label7)
         Me.GroupBox1.Controls.Add(Me.txtFechaOrden)
         Me.GroupBox1.Controls.Add(Me.Label1)
-        Me.GroupBox1.Controls.Add(Me.TextBox4)
         Me.GroupBox1.Controls.Add(Me.txtNombrePaciente)
         Me.GroupBox1.Controls.Add(Me.txtIdPaciente)
         Me.GroupBox1.Controls.Add(Me.Label5)
@@ -131,58 +134,69 @@ Partial Class frmResultados
         Me.GroupBox1.ForeColor = System.Drawing.SystemColors.ControlLightLight
         Me.GroupBox1.Location = New System.Drawing.Point(12, 27)
         Me.GroupBox1.Name = "GroupBox1"
-        Me.GroupBox1.Size = New System.Drawing.Size(635, 163)
+        Me.GroupBox1.Size = New System.Drawing.Size(641, 163)
         Me.GroupBox1.TabIndex = 15
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Seleccionar ornden"
         '
-        'Button4
+        'dtpFecha
         '
-        Me.Button4.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button4.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button4.Image = CType(resources.GetObject("Button4.Image"), System.Drawing.Image)
-        Me.Button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button4.Location = New System.Drawing.Point(207, 97)
-        Me.Button4.Name = "Button4"
-        Me.Button4.Size = New System.Drawing.Size(77, 60)
-        Me.Button4.TabIndex = 21
-        Me.Button4.Text = "Limpiar"
-        Me.Button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button4.UseVisualStyleBackColor = True
+        Me.dtpFecha.CustomFormat = "dddd dd -MMMM- yyyy"
+        Me.dtpFecha.Enabled = False
+        Me.dtpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom
+        Me.dtpFecha.Location = New System.Drawing.Point(405, 17)
+        Me.dtpFecha.Name = "dtpFecha"
+        Me.dtpFecha.Size = New System.Drawing.Size(230, 20)
+        Me.dtpFecha.TabIndex = 22
         '
-        'Button2
+        'btnLimpiar
         '
-        Me.Button2.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button2.Image = CType(resources.GetObject("Button2.Image"), System.Drawing.Image)
-        Me.Button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button2.Location = New System.Drawing.Point(107, 97)
-        Me.Button2.Name = "Button2"
-        Me.Button2.Size = New System.Drawing.Size(77, 60)
-        Me.Button2.TabIndex = 20
-        Me.Button2.Text = "Buscar"
-        Me.Button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button2.UseVisualStyleBackColor = True
+        Me.btnLimpiar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnLimpiar.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnLimpiar.Image = CType(resources.GetObject("btnLimpiar.Image"), System.Drawing.Image)
+        Me.btnLimpiar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnLimpiar.Location = New System.Drawing.Point(207, 97)
+        Me.btnLimpiar.Name = "btnLimpiar"
+        Me.btnLimpiar.Size = New System.Drawing.Size(77, 60)
+        Me.btnLimpiar.TabIndex = 21
+        Me.btnLimpiar.Text = "Limpiar"
+        Me.btnLimpiar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnLimpiar.UseVisualStyleBackColor = True
         '
-        'Button1
+        'btnBuscar
         '
-        Me.Button1.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button1.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Button1.Image = CType(resources.GetObject("Button1.Image"), System.Drawing.Image)
-        Me.Button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button1.Location = New System.Drawing.Point(7, 97)
-        Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(77, 60)
-        Me.Button1.TabIndex = 14
-        Me.Button1.Text = "Aceptar"
-        Me.Button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button1.UseVisualStyleBackColor = True
+        Me.btnBuscar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnBuscar.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnBuscar.Image = CType(resources.GetObject("btnBuscar.Image"), System.Drawing.Image)
+        Me.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnBuscar.Location = New System.Drawing.Point(107, 97)
+        Me.btnBuscar.Name = "btnBuscar"
+        Me.btnBuscar.Size = New System.Drawing.Size(77, 60)
+        Me.btnBuscar.TabIndex = 20
+        Me.btnBuscar.Text = "Buscar"
+        Me.btnBuscar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnBuscar.UseVisualStyleBackColor = True
+        '
+        'btnAceptar
+        '
+        Me.btnAceptar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnAceptar.ForeColor = System.Drawing.SystemColors.ControlText
+        Me.btnAceptar.Image = CType(resources.GetObject("btnAceptar.Image"), System.Drawing.Image)
+        Me.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnAceptar.Location = New System.Drawing.Point(7, 97)
+        Me.btnAceptar.Name = "btnAceptar"
+        Me.btnAceptar.Size = New System.Drawing.Size(77, 60)
+        Me.btnAceptar.TabIndex = 14
+        Me.btnAceptar.Text = "Aceptar"
+        Me.btnAceptar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnAceptar.UseVisualStyleBackColor = True
         '
         'txtEmail
         '
+        Me.txtEmail.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmail.Location = New System.Drawing.Point(457, 73)
         Me.txtEmail.Name = "txtEmail"
-        Me.txtEmail.Size = New System.Drawing.Size(169, 20)
+        Me.txtEmail.Size = New System.Drawing.Size(178, 20)
         Me.txtEmail.TabIndex = 19
         '
         'lStatus
@@ -210,16 +224,6 @@ Partial Class frmResultados
         Me.Label8.TabIndex = 17
         Me.Label8.Text = "Status:"
         '
-        'Label2
-        '
-        Me.Label2.AutoSize = True
-        Me.Label2.ForeColor = System.Drawing.SystemColors.ControlText
-        Me.Label2.Location = New System.Drawing.Point(456, 18)
-        Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(46, 13)
-        Me.Label2.TabIndex = 13
-        Me.Label2.Text = "Fecha:"
-        '
         'Label7
         '
         Me.Label7.AutoSize = True
@@ -234,10 +238,12 @@ Partial Class frmResultados
         '
         'txtFechaOrden
         '
+        Me.txtFechaOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtFechaOrden.Location = New System.Drawing.Point(508, 44)
         Me.txtFechaOrden.Name = "txtFechaOrden"
-        Me.txtFechaOrden.Size = New System.Drawing.Size(118, 20)
+        Me.txtFechaOrden.Size = New System.Drawing.Size(127, 20)
         Me.txtFechaOrden.TabIndex = 9
+        Me.txtFechaOrden.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label1
         '
@@ -249,15 +255,9 @@ Partial Class frmResultados
         Me.Label1.TabIndex = 11
         Me.Label1.Text = "No Folio"
         '
-        'TextBox4
-        '
-        Me.TextBox4.Location = New System.Drawing.Point(508, 15)
-        Me.TextBox4.Name = "TextBox4"
-        Me.TextBox4.Size = New System.Drawing.Size(118, 20)
-        Me.TextBox4.TabIndex = 5
-        '
         'txtNombrePaciente
         '
+        Me.txtNombrePaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombrePaciente.Location = New System.Drawing.Point(153, 44)
         Me.txtNombrePaciente.Name = "txtNombrePaciente"
         Me.txtNombrePaciente.Size = New System.Drawing.Size(243, 20)
@@ -265,11 +265,12 @@ Partial Class frmResultados
         '
         'txtIdPaciente
         '
-        Me.txtIdPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtIdPaciente.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtIdPaciente.Location = New System.Drawing.Point(341, 17)
         Me.txtIdPaciente.Name = "txtIdPaciente"
         Me.txtIdPaciente.Size = New System.Drawing.Size(55, 20)
         Me.txtIdPaciente.TabIndex = 1
+        Me.txtIdPaciente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'Label5
         '
@@ -448,13 +449,35 @@ Partial Class frmResultados
         Me.Label6.TabIndex = 0
         Me.Label6.Text = "Sub-Total"
         '
-        'DataGridView1
+        'dgvResultados
         '
-        Me.DataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
-        Me.DataGridView1.Location = New System.Drawing.Point(12, 196)
-        Me.DataGridView1.Name = "DataGridView1"
-        Me.DataGridView1.Size = New System.Drawing.Size(940, 200)
-        Me.DataGridView1.TabIndex = 17
+        Me.dgvResultados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
+        Me.dgvResultados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvResultados.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.rowTipoAnalisis, Me.rowResultado, Me.rowUnidad, Me.rowValorReferencia})
+        Me.dgvResultados.Location = New System.Drawing.Point(12, 196)
+        Me.dgvResultados.Name = "dgvResultados"
+        Me.dgvResultados.Size = New System.Drawing.Size(940, 200)
+        Me.dgvResultados.TabIndex = 17
+        '
+        'rowTipoAnalisis
+        '
+        Me.rowTipoAnalisis.HeaderText = "Tipo de analisis"
+        Me.rowTipoAnalisis.Name = "rowTipoAnalisis"
+        '
+        'rowResultado
+        '
+        Me.rowResultado.HeaderText = "Resultados"
+        Me.rowResultado.Name = "rowResultado"
+        '
+        'rowUnidad
+        '
+        Me.rowUnidad.HeaderText = "Unidades"
+        Me.rowUnidad.Name = "rowUnidad"
+        '
+        'rowValorReferencia
+        '
+        Me.rowValorReferencia.HeaderText = "Valor de referencia"
+        Me.rowValorReferencia.Name = "rowValorReferencia"
         '
         'Label15
         '
@@ -474,69 +497,69 @@ Partial Class frmResultados
         Me.TextBox13.Size = New System.Drawing.Size(321, 85)
         Me.TextBox13.TabIndex = 19
         '
-        'Button8
+        'btnImprimirResultados
         '
-        Me.Button8.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button8.Image = CType(resources.GetObject("Button8.Image"), System.Drawing.Image)
-        Me.Button8.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button8.Location = New System.Drawing.Point(667, 425)
-        Me.Button8.Name = "Button8"
-        Me.Button8.Size = New System.Drawing.Size(91, 65)
-        Me.Button8.TabIndex = 23
-        Me.Button8.Text = "Imprimir resultados"
-        Me.Button8.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button8.UseVisualStyleBackColor = True
+        Me.btnImprimirResultados.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnImprimirResultados.Image = CType(resources.GetObject("btnImprimirResultados.Image"), System.Drawing.Image)
+        Me.btnImprimirResultados.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnImprimirResultados.Location = New System.Drawing.Point(667, 425)
+        Me.btnImprimirResultados.Name = "btnImprimirResultados"
+        Me.btnImprimirResultados.Size = New System.Drawing.Size(91, 65)
+        Me.btnImprimirResultados.TabIndex = 23
+        Me.btnImprimirResultados.Text = "Imprimir resultados"
+        Me.btnImprimirResultados.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnImprimirResultados.UseVisualStyleBackColor = True
         '
-        'Button7
+        'btnEnviar
         '
-        Me.Button7.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button7.Image = CType(resources.GetObject("Button7.Image"), System.Drawing.Image)
-        Me.Button7.Location = New System.Drawing.Point(570, 425)
-        Me.Button7.Name = "Button7"
-        Me.Button7.Size = New System.Drawing.Size(91, 65)
-        Me.Button7.TabIndex = 22
-        Me.Button7.Text = "Envio"
-        Me.Button7.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button7.UseVisualStyleBackColor = True
+        Me.btnEnviar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnEnviar.Image = CType(resources.GetObject("btnEnviar.Image"), System.Drawing.Image)
+        Me.btnEnviar.Location = New System.Drawing.Point(570, 425)
+        Me.btnEnviar.Name = "btnEnviar"
+        Me.btnEnviar.Size = New System.Drawing.Size(91, 65)
+        Me.btnEnviar.TabIndex = 22
+        Me.btnEnviar.Text = "Envio"
+        Me.btnEnviar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnEnviar.UseVisualStyleBackColor = True
         '
-        'Button6
+        'btnGuardarOrden
         '
-        Me.Button6.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button6.Image = CType(resources.GetObject("Button6.Image"), System.Drawing.Image)
-        Me.Button6.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button6.Location = New System.Drawing.Point(764, 425)
-        Me.Button6.Name = "Button6"
-        Me.Button6.Size = New System.Drawing.Size(91, 65)
-        Me.Button6.TabIndex = 21
-        Me.Button6.Text = "Guardar orden"
-        Me.Button6.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button6.UseVisualStyleBackColor = True
+        Me.btnGuardarOrden.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnGuardarOrden.Image = CType(resources.GetObject("btnGuardarOrden.Image"), System.Drawing.Image)
+        Me.btnGuardarOrden.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnGuardarOrden.Location = New System.Drawing.Point(764, 425)
+        Me.btnGuardarOrden.Name = "btnGuardarOrden"
+        Me.btnGuardarOrden.Size = New System.Drawing.Size(91, 65)
+        Me.btnGuardarOrden.TabIndex = 21
+        Me.btnGuardarOrden.Text = "Guardar orden"
+        Me.btnGuardarOrden.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnGuardarOrden.UseVisualStyleBackColor = True
         '
-        'Button5
+        'btnRegresar
         '
-        Me.Button5.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.Button5.Image = CType(resources.GetObject("Button5.Image"), System.Drawing.Image)
-        Me.Button5.ImageAlign = System.Drawing.ContentAlignment.TopCenter
-        Me.Button5.Location = New System.Drawing.Point(861, 425)
-        Me.Button5.Name = "Button5"
-        Me.Button5.Size = New System.Drawing.Size(91, 65)
-        Me.Button5.TabIndex = 20
-        Me.Button5.Text = "Regresar"
-        Me.Button5.TextAlign = System.Drawing.ContentAlignment.BottomCenter
-        Me.Button5.UseVisualStyleBackColor = True
+        Me.btnRegresar.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.btnRegresar.Image = CType(resources.GetObject("btnRegresar.Image"), System.Drawing.Image)
+        Me.btnRegresar.ImageAlign = System.Drawing.ContentAlignment.TopCenter
+        Me.btnRegresar.Location = New System.Drawing.Point(861, 425)
+        Me.btnRegresar.Name = "btnRegresar"
+        Me.btnRegresar.Size = New System.Drawing.Size(91, 65)
+        Me.btnRegresar.TabIndex = 20
+        Me.btnRegresar.Text = "Regresar"
+        Me.btnRegresar.TextAlign = System.Drawing.ContentAlignment.BottomCenter
+        Me.btnRegresar.UseVisualStyleBackColor = True
         '
         'frmResultados
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(964, 508)
-        Me.Controls.Add(Me.Button8)
-        Me.Controls.Add(Me.Button7)
-        Me.Controls.Add(Me.Button6)
-        Me.Controls.Add(Me.Button5)
+        Me.Controls.Add(Me.btnImprimirResultados)
+        Me.Controls.Add(Me.btnEnviar)
+        Me.Controls.Add(Me.btnGuardarOrden)
+        Me.Controls.Add(Me.btnRegresar)
         Me.Controls.Add(Me.TextBox13)
         Me.Controls.Add(Me.Label15)
-        Me.Controls.Add(Me.DataGridView1)
+        Me.Controls.Add(Me.dgvResultados)
         Me.Controls.Add(Me.GroupBox3)
         Me.Controls.Add(Me.GroupBox1)
         Me.Controls.Add(Me.MenuStrip1)
@@ -548,7 +571,7 @@ Partial Class frmResultados
         Me.GroupBox1.PerformLayout()
         Me.GroupBox3.ResumeLayout(False)
         Me.GroupBox3.PerformLayout()
-        CType(Me.DataGridView1, System.ComponentModel.ISupportInitialize).EndInit()
+        CType(Me.dgvResultados, System.ComponentModel.ISupportInitialize).EndInit()
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
@@ -561,18 +584,16 @@ Partial Class frmResultados
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents lStatus As System.Windows.Forms.Label
     Friend WithEvents Label8 As System.Windows.Forms.Label
-    Friend WithEvents Label2 As System.Windows.Forms.Label
     Friend WithEvents Label7 As System.Windows.Forms.Label
     Friend WithEvents txtFechaOrden As System.Windows.Forms.TextBox
     Friend WithEvents Label1 As System.Windows.Forms.Label
-    Friend WithEvents TextBox4 As System.Windows.Forms.TextBox
     Friend WithEvents txtNombrePaciente As System.Windows.Forms.TextBox
     Friend WithEvents txtIdPaciente As System.Windows.Forms.TextBox
     Friend WithEvents Label5 As System.Windows.Forms.Label
     Friend WithEvents Label3 As System.Windows.Forms.Label
     Friend WithEvents Label4 As System.Windows.Forms.Label
     Friend WithEvents txtEmail As System.Windows.Forms.TextBox
-    Friend WithEvents Button1 As System.Windows.Forms.Button
+    Friend WithEvents btnAceptar As System.Windows.Forms.Button
     Friend WithEvents GroupBox3 As System.Windows.Forms.GroupBox
     Friend WithEvents TextBox12 As System.Windows.Forms.TextBox
     Friend WithEvents Label12 As System.Windows.Forms.Label
@@ -587,13 +608,18 @@ Partial Class frmResultados
     Friend WithEvents Label13 As System.Windows.Forms.Label
     Friend WithEvents Label11 As System.Windows.Forms.Label
     Friend WithEvents Label6 As System.Windows.Forms.Label
-    Friend WithEvents Button4 As System.Windows.Forms.Button
-    Friend WithEvents Button2 As System.Windows.Forms.Button
-    Friend WithEvents DataGridView1 As System.Windows.Forms.DataGridView
+    Friend WithEvents btnLimpiar As System.Windows.Forms.Button
+    Friend WithEvents btnBuscar As System.Windows.Forms.Button
+    Friend WithEvents dgvResultados As System.Windows.Forms.DataGridView
     Friend WithEvents Label15 As System.Windows.Forms.Label
     Friend WithEvents TextBox13 As System.Windows.Forms.TextBox
-    Friend WithEvents Button8 As System.Windows.Forms.Button
-    Friend WithEvents Button7 As System.Windows.Forms.Button
-    Friend WithEvents Button6 As System.Windows.Forms.Button
-    Friend WithEvents Button5 As System.Windows.Forms.Button
+    Friend WithEvents btnImprimirResultados As System.Windows.Forms.Button
+    Friend WithEvents btnEnviar As System.Windows.Forms.Button
+    Friend WithEvents btnGuardarOrden As System.Windows.Forms.Button
+    Friend WithEvents btnRegresar As System.Windows.Forms.Button
+    Friend WithEvents dtpFecha As System.Windows.Forms.DateTimePicker
+    Friend WithEvents rowTipoAnalisis As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents rowResultado As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents rowUnidad As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents rowValorReferencia As System.Windows.Forms.DataGridViewTextBoxColumn
 End Class
