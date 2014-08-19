@@ -5,6 +5,12 @@
   
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnAceptar.Click
 
+        llenarDatosPaciente()
+        llenarDataGridViewResultados()
+    End Sub
+
+    Private Sub llenarDatosPaciente()
+
         Dim folio As String = txtFolio.Text
         Dim sqlConsulta = "SELECT FKStatus,FechaCreacion,FKPaciente,Apellidos,Nombre,Correo FROM AR_Ordenes,CT_Pacientes AS Orden WHERE PKOrden = '" & folio & "' AND PKPaciente = (SELECT FKPaciente FROM AR_Ordenes WHERE PKOrden = '" & folio & "')"
 
@@ -26,15 +32,15 @@
             If status = 1 Then
                 lStatus.Visible = True
                 lStatus.Text = "ACTIVO"
+            Else
+                lStatus.Visible = True
+                lStatus.Text = "INACTIVO"
             End If
 
             txtNombrePaciente.Text = obtenerDatos.Tables("Orden").Rows(0)("Apellidos").ToString() + obtenerDatos.Tables("Orden").Rows(0)("Nombre").ToString()
             txtFechaOrden.Text = Convert.ToDateTime(fechaOrden).ToString("dd-MMMM-yyyy")
             txtIdPaciente.Text = id
             txtEmail.Text = correo
-
-            llenarDataGridViewResultados()
-
         Else
             MsgBox("El dato ingresado no se encuentra el la base de datos")
 
@@ -51,7 +57,6 @@
         Dim valorReferencias As String = ""
         dgvResultados.Rows.Clear()
         obtenerDatos = New DataSet
-
 
         conexionbd.consultaReader(sqlDetalleOrden)
 
@@ -79,5 +84,4 @@
 
     End Sub
 
-   
 End Class

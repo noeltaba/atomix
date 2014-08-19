@@ -26,7 +26,7 @@ Partial Class frmEditarOrdenLaboratorio
         Me.Label1 = New System.Windows.Forms.Label()
         Me.txtIdPaciente = New System.Windows.Forms.TextBox()
         Me.Label2 = New System.Windows.Forms.Label()
-        Me.DateTimePicker1 = New System.Windows.Forms.DateTimePicker()
+        Me.dtpFecha = New System.Windows.Forms.DateTimePicker()
         Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Label7 = New System.Windows.Forms.Label()
         Me.txtEmailEnvio = New System.Windows.Forms.TextBox()
@@ -70,6 +70,9 @@ Partial Class frmEditarOrdenLaboratorio
         Me.btnImprimirOrdenLaboratorio = New System.Windows.Forms.Button()
         Me.btnEtiqueta = New System.Windows.Forms.Button()
         Me.btnGuardarOrden = New System.Windows.Forms.Button()
+        Me.Column1 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column2 = New System.Windows.Forms.DataGridViewTextBoxColumn()
+        Me.Column3 = New System.Windows.Forms.DataGridViewTextBoxColumn()
         Me.GroupBox1.SuspendLayout()
         Me.MenuStrip1.SuspendLayout()
         Me.GroupBox2.SuspendLayout()
@@ -97,18 +100,18 @@ Partial Class frmEditarOrdenLaboratorio
         'Label2
         '
         Me.Label2.AutoSize = True
-        Me.Label2.Location = New System.Drawing.Point(532, 44)
+        Me.Label2.Location = New System.Drawing.Point(487, 44)
         Me.Label2.Name = "Label2"
-        Me.Label2.Size = New System.Drawing.Size(40, 13)
+        Me.Label2.Size = New System.Drawing.Size(85, 13)
         Me.Label2.TabIndex = 3
-        Me.Label2.Text = "Fecha:"
+        Me.Label2.Text = "Fecha de orden:"
         '
-        'DateTimePicker1
+        'dtpFecha
         '
-        Me.DateTimePicker1.Location = New System.Drawing.Point(578, 40)
-        Me.DateTimePicker1.Name = "DateTimePicker1"
-        Me.DateTimePicker1.Size = New System.Drawing.Size(220, 20)
-        Me.DateTimePicker1.TabIndex = 4
+        Me.dtpFecha.Location = New System.Drawing.Point(578, 40)
+        Me.dtpFecha.Name = "dtpFecha"
+        Me.dtpFecha.Size = New System.Drawing.Size(220, 20)
+        Me.dtpFecha.TabIndex = 4
         '
         'GroupBox1
         '
@@ -146,6 +149,7 @@ Partial Class frmEditarOrdenLaboratorio
         '
         'txtEmailEnvio
         '
+        Me.txtEmailEnvio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtEmailEnvio.Location = New System.Drawing.Point(565, 74)
         Me.txtEmailEnvio.Name = "txtEmailEnvio"
         Me.txtEmailEnvio.Size = New System.Drawing.Size(212, 20)
@@ -173,6 +177,7 @@ Partial Class frmEditarOrdenLaboratorio
         '
         'txtNombres
         '
+        Me.txtNombres.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtNombres.Location = New System.Drawing.Point(563, 29)
         Me.txtNombres.Name = "txtNombres"
         Me.txtNombres.Size = New System.Drawing.Size(214, 20)
@@ -180,6 +185,7 @@ Partial Class frmEditarOrdenLaboratorio
         '
         'txtApellidos
         '
+        Me.txtApellidos.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtApellidos.Location = New System.Drawing.Point(240, 29)
         Me.txtApellidos.Name = "txtApellidos"
         Me.txtApellidos.Size = New System.Drawing.Size(243, 20)
@@ -306,6 +312,7 @@ Partial Class frmEditarOrdenLaboratorio
         '
         'cbEstudio
         '
+        Me.cbEstudio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.cbEstudio.FormattingEnabled = True
         Me.cbEstudio.Location = New System.Drawing.Point(65, 29)
         Me.cbEstudio.Name = "cbEstudio"
@@ -326,6 +333,7 @@ Partial Class frmEditarOrdenLaboratorio
         '
         'txtPrecio
         '
+        Me.txtPrecio.Font = New System.Drawing.Font("Microsoft Sans Serif", 8.25!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
         Me.txtPrecio.Location = New System.Drawing.Point(65, 74)
         Me.txtPrecio.Name = "txtPrecio"
         Me.txtPrecio.Size = New System.Drawing.Size(80, 20)
@@ -362,6 +370,7 @@ Partial Class frmEditarOrdenLaboratorio
         Me.txtFolio.Name = "txtFolio"
         Me.txtFolio.Size = New System.Drawing.Size(77, 29)
         Me.txtFolio.TabIndex = 10
+        Me.txtFolio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center
         '
         'btnBuscar
         '
@@ -477,7 +486,9 @@ Partial Class frmEditarOrdenLaboratorio
         '
         'dgvOrdenes
         '
+        Me.dgvOrdenes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill
         Me.dgvOrdenes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize
+        Me.dgvOrdenes.Columns.AddRange(New System.Windows.Forms.DataGridViewColumn() {Me.Column1, Me.Column2, Me.Column3})
         Me.dgvOrdenes.Location = New System.Drawing.Point(15, 339)
         Me.dgvOrdenes.Name = "dgvOrdenes"
         Me.dgvOrdenes.Size = New System.Drawing.Size(514, 139)
@@ -572,6 +583,21 @@ Partial Class frmEditarOrdenLaboratorio
         Me.btnGuardarOrden.TextAlign = System.Drawing.ContentAlignment.BottomCenter
         Me.btnGuardarOrden.UseVisualStyleBackColor = True
         '
+        'Column1
+        '
+        Me.Column1.HeaderText = "Num. Orden"
+        Me.Column1.Name = "Column1"
+        '
+        'Column2
+        '
+        Me.Column2.HeaderText = "Estudio"
+        Me.Column2.Name = "Column2"
+        '
+        'Column3
+        '
+        Me.Column3.HeaderText = "Precio"
+        Me.Column3.Name = "Column3"
+        '
         'frmEditarOrdenLaboratorio
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
@@ -590,7 +616,7 @@ Partial Class frmEditarOrdenLaboratorio
         Me.Controls.Add(Me.txtFolio)
         Me.Controls.Add(Me.GroupBox2)
         Me.Controls.Add(Me.GroupBox1)
-        Me.Controls.Add(Me.DateTimePicker1)
+        Me.Controls.Add(Me.dtpFecha)
         Me.Controls.Add(Me.Label2)
         Me.Controls.Add(Me.btnBuscar)
         Me.Controls.Add(Me.Label1)
@@ -616,7 +642,7 @@ Partial Class frmEditarOrdenLaboratorio
     Friend WithEvents txtIdPaciente As System.Windows.Forms.TextBox
     Friend WithEvents btnBuscar As System.Windows.Forms.Button
     Friend WithEvents Label2 As System.Windows.Forms.Label
-    Friend WithEvents DateTimePicker1 As System.Windows.Forms.DateTimePicker
+    Friend WithEvents dtpFecha As System.Windows.Forms.DateTimePicker
     Friend WithEvents GroupBox1 As System.Windows.Forms.GroupBox
     Friend WithEvents MenuStrip1 As System.Windows.Forms.MenuStrip
     Friend WithEvents ArchivoToolStripMenuItem As System.Windows.Forms.ToolStripMenuItem
@@ -659,5 +685,8 @@ Partial Class frmEditarOrdenLaboratorio
     Friend WithEvents btnImprimirOrdenLaboratorio As System.Windows.Forms.Button
     Friend WithEvents btnEtiqueta As System.Windows.Forms.Button
     Friend WithEvents btnGuardarOrden As System.Windows.Forms.Button
+    Friend WithEvents Column1 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column2 As System.Windows.Forms.DataGridViewTextBoxColumn
+    Friend WithEvents Column3 As System.Windows.Forms.DataGridViewTextBoxColumn
 
 End Class

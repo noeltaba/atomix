@@ -10,8 +10,9 @@ Public Class frmAltaOrdenLaboratorio
     ''EVENTO CARGA FORMULARIO
     Private Sub frmAltaOrdenLaboratorio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
-        conexionbd.llenarComboBox(cbEstudio, "Analisis", "CT_Analisis", "Analisis")
-        conexionbd.llenarComboBox(cbRecibi, "Sucursal", "CT_Sucursales", "PKSucursal")
+        conexionbd.llenarComboBox(cbEstudio, "Analisis", "CT_Analisis", "mostrar = 1", "Analisis", True)
+        conexionbd.llenarComboBox(cbRecibi, "Sucursal", "CT_Sucursales", "", "PKSucursal", False)
+        conexionbd.llenarComboBox(cbMedico, "Nombre", "CT_Medicos", "", "Nombre", False)
         txtSubTotal.Text = String.Format("{0:N2}", 0)
         txtAnticipo.Text = String.Format("{0:N2}", 0)
         txtDescuento.Text = String.Format("{0:N2}", 0)
@@ -49,7 +50,7 @@ Public Class frmAltaOrdenLaboratorio
     Private Sub btnBuscar_Click(sender As Object, e As EventArgs) Handles btnBuscar.Click
 
         Dim buscarPaciente As New frmBuscarPaciente()
-
+        buscarPaciente.altaOrden = True
         buscarPaciente.Show()
 
     End Sub
@@ -97,6 +98,7 @@ Public Class frmAltaOrdenLaboratorio
             Dim fkUsuario As Integer = 1
             Dim fkStatus As Integer = 1
             Dim esRadiologia As Integer = 0
+            Dim pkMedico As String = "(SELECT PKMedico FROM CT_Medicos WHERE Nombre = '" & cbMedico.Text & "')"
             'fin variables orden
             'variables pago
             Dim descuento As Double = Convert.ToDouble(txtDescuento.Text)
@@ -104,17 +106,30 @@ Public Class frmAltaOrdenLaboratorio
             Dim subTotal As Double = Convert.ToDouble(txtSaldo.Text)
             Dim abono As Double = Convert.ToDouble(txtAnticipo.Text)
             'fin variables pago
-            Dim sqlOrden As String = "INSERT INTO AR_Ordenes (FKSucursal, FKPaciente, FKUsuario,FKStatus,fechamodificacion,EsRadiologia)" +
-                                     "VALUES ((" + fkSucursal + ")," & fkPaciente & "," & fkUsuario & "," & fkStatus & ", GETDATE(), 0)"
-            Dim sqlPago As String = "INSERT INTO AR_Pagos (FKOrden,Descuento,Pago,Fecha,subtotal,abono,total)" +
-                                    "VALUES (" & fkOrden & "," & descuento & "," & pago & ",GETDATE()," & subTotal & "," & abono & "," & pago & ")"
+            Dim sqlOrden As String = "INSERT INTO AR_Ordenes (FKSucursal, FKPaciente, FKUsuario,FKStatus,fechamodificacion,EsRadiologia,FKMedico)" +
+                                     "VALUES ((" + fkSucursal + ")," & fkPaciente & "," & fkUsuario & "," & fkStatus & ", GETDATE(), 0," & pkMedico & ")"
+
+            Dim sqlPago As String = "INSERT INTO AR_Pagos (FKOrden,Descuento,Fecha,subtotal,total)" +
+                                    "VALUES (" & fkOrden & "," & descuento & ",GETDATE()," & subTotal & "," & pago & ")"
+
+            Dim sqlpkPago As String = "(SELECT PKPago FROM AR_Pagos WHERE FKOrden = " & fkOrden & ")"
+
+            Dim sqlDetallePago As String = "INSERT INTO AR_DetallePagos (FKPago,abono,fecha_pago,FKUsuario)" +
+                                           " VALUES(" & sqlpkPago & "," & abono & ",GETDATE(),1)"
 
             If conexionbd.insertar(sqlOrden) Then 'se inserta el registro de la orden 
 
-                llenarDetalleOrden(fkOrden, pago) 'se inserta el registro detalle orden
+                llenarDetalleOrden(fkOrden) 'se inserta el registro detalle orden
 
                 If conexionbd.insertar(sqlPago) Then 'se inserta el registro de pago
                     txtFolio.Text = (obtenerFolio() - 1)
+
+                    If Convert.ToDouble(txtAnticipo.Text) > 0 Then
+                        If conexionbd.insertar(sqlDetallePago) Then
+                            MsgBox("Detalle pago insertado correcta mente")
+                        End If
+                    End If
+
                     MsgBox("Registro de datos exitoso")
                 Else
                     MsgBox("No se realizo el pago")
@@ -122,6 +137,8 @@ Public Class frmAltaOrdenLaboratorio
             Else
                 MsgBox("Error al insertar orden de pago")
             End If
+        Else
+            MsgBox("Favor de llenar todo el formulario")
         End If
 
     End Sub
@@ -209,7 +226,7 @@ Public Class frmAltaOrdenLaboratorio
     'sirve para verificar que los campos tengan datos antes de cargar un estudio o intentar eliminarlo
     Private Function vacio()
 
-        If txtApellido.Text = "" Or cbEstudio.Text = "" Or cbRecibi.Text = "" Then
+        If txtApellido.Text = "" Or cbEstudio.Text = "" Or cbRecibi.Text = "" Or cbMedico.Text = "" Then
 
             Return True
 
@@ -237,13 +254,13 @@ Public Class frmAltaOrdenLaboratorio
         Return folio
     End Function
     'llenar detalle orden
-    Private Sub llenarDetalleOrden(fkOrden As String, total As Double)
+    Private Sub llenarDetalleOrden(fkOrden As String)
 
         For Each row As DataGridViewRow In dgvEstudios.Rows
 
             Dim analisis As String = row.Cells("rowEstudio").Value
 
-            Dim queryInsertarDetalleOrden = "INSERT INTO AR_OrdenDetalles (FKOrden,FKAnalisis,Total,IVA) VALUES (" & fkOrden & ",(SELECT PKAnalisis FROM CT_Analisis WHERE Analisis = '" & analisis & "')," & total & ",16)"
+            Dim queryInsertarDetalleOrden = "INSERT INTO AR_OrdenDetalles (FKOrden,FKAnalisis) VALUES (" & fkOrden & ",(SELECT PKAnalisis FROM CT_Analisis WHERE Analisis = '" & analisis & "'))"
 
             If analisis = "" Then Exit For
 

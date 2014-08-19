@@ -130,17 +130,26 @@ Public Class conexionBD
     End Sub
 
     'LLENAR COMBOBOX
-    Public Sub llenarComboBox(miComboBox As ComboBox, columna As String, tabla As String, orderBy As String)
+    Public Sub llenarComboBox(miComboBox As ComboBox, columna As String, tabla As String, condicion As String, orderBy As String, conCondicion As Boolean)
+
+        Dim sqlLlenarComboBox As String = ""
+
+        If conCondicion Then
+            sqlLlenarComboBox = "SELECT " + columna + " FROM " + tabla + " WHERE " + condicion + " ORDER BY " + orderBy + " ASC"
+        Else
+            sqlLlenarComboBox = "SELECT " + columna + " FROM " + tabla + " ORDER BY " + orderBy + " ASC"
+        End If
 
         obtenerDato = New DataSet
         obtenerDato.Reset()
-        adaptador = consultaAdaptador("SELECT " + columna + " FROM " + tabla + " ORDER BY " + orderBy + " ASC")
+        adaptador = consultaAdaptador(sqlLlenarComboBox)
         adaptador.Fill(obtenerDato, tabla)
 
         miComboBox.DataSource = obtenerDato.Tables(tabla)
         miComboBox.DisplayMember = columna
         miComboBox.SelectedIndex = -1
-        frmAltaOrdenLaboratorio.entra = 1
+        frmAltaOrdenLaboratorio.entra = 1 'si noy hay datos marca un error en el index al cargar el precio
+        frmEditarOrdenLaboratorio.entra = 1
     End Sub
 
     'LLENAR DATA GRID VIEW
