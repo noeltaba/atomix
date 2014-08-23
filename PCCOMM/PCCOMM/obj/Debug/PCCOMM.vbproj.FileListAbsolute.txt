@@ -52,3 +52,16 @@ C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\obj\Debug\PCCO
 C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.exe
 C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.xml
 C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.pdb
+C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\bin\Debug\PCCOMM.exe
+C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\bin\Debug\PCCOMM.pdb
+C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\bin\Debug\PCCOMM.xml
+C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\bin\Debug\Interop.MSDATASRC.dll
+C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmAltaOrdenLaboratorio.resources
+C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmBuscarPaciente.resources
+C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmEditarOrdenLaboratorio.resources
+C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmModificaPaciente.resources
+C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmNuevoPaciente.resources
+C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmordenesdia.resources
+C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.frmResultados.resources
+C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.Resources.resources
+C:\Users\NOEL\Documents\GitHub\Atomixlab 2.2\atomix\PCCOMM\PCCOMM\obj\Debug\PCCOMM.vbproj.GenerateResource.Cache

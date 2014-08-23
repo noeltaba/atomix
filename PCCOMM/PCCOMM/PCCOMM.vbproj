@@ -102,6 +102,12 @@
     <Compile Include="frmNuevoPaciente.vb">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="frmordenesdia.Designer.vb">
+      <DependentUpon>frmordenesdia.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmordenesdia.vb">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="frmResultados.Designer.vb">
       <DependentUpon>frmResultados.vb</DependentUpon>
     </Compile>
@@ -139,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmNuevoPaciente.resx">
       <DependentUpon>frmNuevoPaciente.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmordenesdia.resx">
+      <DependentUpon>frmordenesdia.vb</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmResultados.resx">
       <DependentUpon>frmResultados.vb</DependentUpon>

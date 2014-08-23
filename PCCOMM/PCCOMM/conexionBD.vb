@@ -4,9 +4,9 @@ Imports System.Data.SqlClient
 Public Class conexionBD
 
     'DECLARACION DE CONSTANTES PARA LA CADENA DE CONEXION
-    Public Const Server = "KIORIYLAP\SQLEXPRESS"
+    Public Const Server = "samsung"
     Public Const usuario = "sa"
-    Public Const password = "yagami"
+    Public Const password = "Pccomm01"
     Public Const dataBase = "atomix"
 
     Public Const cadenaConexion As String = "Server=" + Server + "; uid=" + usuario + " ; pwd=" + password + " ; database=" + dataBase + ""

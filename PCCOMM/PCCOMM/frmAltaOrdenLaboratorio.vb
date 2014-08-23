@@ -7,7 +7,22 @@ Public Class frmAltaOrdenLaboratorio
     Dim conexionbd As New conexionBD
     Public entra As Integer = 0
 
+    ''color a data gri
+    Sub alternarcolor(ByRef dgv As DataGridView)
+        Try
+            With dgv
+                .RowsDefaultCellStyle.BackColor = Color.LightBlue
+                .AlternatingRowsDefaultCellStyle.BackColor = Color.White
+
+            End With
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
     ''EVENTO CARGA FORMULARIO
+
     Private Sub frmAltaOrdenLaboratorio_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         conexionbd.llenarComboBox(cbEstudio, "Analisis", "CT_Analisis", "mostrar = 1", "Analisis", True)
@@ -17,6 +32,7 @@ Public Class frmAltaOrdenLaboratorio
         txtAnticipo.Text = String.Format("{0:N2}", 0)
         txtDescuento.Text = String.Format("{0:N2}", 0)
         txtSaldo.Text = String.Format("{0:N2}", 0)
+        alternarcolor(dgvEstudios)
 
     End Sub
 

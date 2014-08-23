@@ -4,10 +4,22 @@
     Dim conexiondb As New conexionBD()
     Public modificarPaciente As Boolean
     Public altaOrden As Boolean
+    Sub alternarcolor(ByRef dgv As DataGridView)
+        Try
+            With dgv
+                .RowsDefaultCellStyle.BackColor = Color.LightBlue
+                .AlternatingRowsDefaultCellStyle.BackColor = Color.White
 
+            End With
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
     Private Sub frmBuscarPaciente_Load(sender As Object, e As EventArgs) Handles MyBase.Load
 
         conexiondb.llenarDataGridView(dgvPaciente, "PKPaciente, Nombre, Apellidos, Domicilio,Ciudad, Correo, Telefono,Sexo, FechaNacimiento", "CT_Pacientes", "Apellidos")
+        alternarcolor(dgvPaciente)
 
     End Sub
 
